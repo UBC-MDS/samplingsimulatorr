@@ -13,6 +13,6 @@
 #' @examples
 #' pop <- generate_virtual_pop(100, "Variable", rnorm, 0, 1)
 #' samples <- draw_samples(pop, 3, c(1, 10))
-draw_samples <- function(pop, sample_size, n_samples){
+draw_samples <- function(pop, reps, n_s){
   
 }

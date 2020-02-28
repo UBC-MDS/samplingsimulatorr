@@ -1,13 +1,10 @@
-# Credits
-
-
-## Development Lead
-
-* Tao Guo <tguo9@dons.usfca.edu>
 
 ## Contributors
 
-* Tao Guo (tguo9)
-* Holy Williams (hlwilliams10)
-* Yue (Alex) Jiang (YueJiangMDSV)
-* Lise Braaten (lisebraaten)
+* Tao Guo <tguo9@dons.usfca.edu>
+
+* Yue Jiang <yue856@gmail.com>
+
+* Lise Braaten <lisebraaten@gmail.com>
+
+* Holly Williams <Holly.Rourke@gmail.com>

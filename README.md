@@ -1,6 +1,6 @@
 ## samplingsimulatorr
 
-![](https://github.com/tguo9/samplingsimulatorpy/workflows/build/badge.svg) [![codecov](https://codecov.io/gh/tguo9/samplingsimulatorpy/branch/master/graph/badge.svg)](https://codecov.io/gh/tguo9/samplingsimulatorpy) ![Release](https://github.com/tguo9/samplingsimulatorpy/workflows/Release/badge.svg)
+![](https://github.com/tguo9/samplingsimulatorpy/workflows/build/badge.svg) [![codecov](https://codecov.io/gh/UBC-MDS/samplingsimulatorpy/branch/master/graph/badge.svg)](https://codecov.io/gh/UBC-MDS/samplingsimulatorpy) ![Release](https://github.com/UBC-MDS/samplingsimulatorpy/workflows/Release/badge.svg)
 
 [![Documentation Status](https://readthedocs.org/projects/samplingsimulatorpy/badge/?version=latest)](https://samplingsimulatorpy.readthedocs.io/en/latest/?badge=latest)
 

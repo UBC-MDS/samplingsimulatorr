@@ -4,8 +4,6 @@
 
 In the interest of fostering an open and welcoming environment, we as contributors and maintainers pledge to making participation in our project and our community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, or sexual identity and orientation.
 
-Contributors of this project are responsible for enforcing the Code of Conduct. They can be contacted by emailing Tao Guo <tguo9@dons.usfca.edu>, Yue Jiang <yue856@gmail.com>, Lise Braaten <lisebraaten@gmail.com>, or Holly Williams <Holly.Rourke@gmail.com>. All reports will be kept confidential.
-
 ## Our Standards
 
 Examples of behavior that contributes to creating a positive environment include:
@@ -44,3 +42,4 @@ Project maintainers who do not follow or enforce the Code of Conduct in good fai
 
 This Code of Conduct is adapted from the [Contributor Covenant](https://www.contributor-covenant.org/version/1/4/code-of-conduct.html), version 1.4,
 and [UBC Data Science 100 CoC](https://github.com/UBC-DSCI/dsci-100/blob/master/CODE_OF_CONDUCT.md).
+

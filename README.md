@@ -41,7 +41,7 @@ Python pandas already includes some summary statistics functions such as .descri
 ### Installation:
 
 ```
-pip install -i https://test.pypi.org/simple/ samplingsimulatorpy
+Will be updated once functions are created
 ```
 
 ### Features

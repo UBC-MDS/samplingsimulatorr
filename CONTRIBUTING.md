@@ -99,6 +99,7 @@ Before you submit a pull request, check that it meets these guidelines:
    feature to the list in README.md.
 3. The pull request should work for Python 3.7 & 3.8. Check https://github.com/UBC-MDS/samplingsimulatorr/pulls and make sure that the tests pass for all supported Python versions.
 
+
 ## Tips
 
 To run a subset of tests:

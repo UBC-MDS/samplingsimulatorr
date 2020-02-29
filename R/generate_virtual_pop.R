@@ -3,7 +3,7 @@
 #' This function creates a population from a distribution.
 #' Author: Tao Guo
 #'
-#'@param N The numbers
+#'@param N The numbers of samples
 #'@param var_name the variable name that we need to create
 #'@param dist the function that we are using
 #'@param ... for the dist function

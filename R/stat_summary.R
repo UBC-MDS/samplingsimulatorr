@@ -3,7 +3,9 @@
 #' This function creates a population from a distribution.
 #' Author: Tao Guo
 #'
-#'@param population, samples, parameter
+#'@param population The virtual population
+#'@param samples The drawed samples
+#'@param parameter The parameter(s) of interest
 #'
 #'@return a tibble summary stats
 #'

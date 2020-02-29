@@ -1,6 +1,6 @@
 #' Create a stats summary
 #'
-#' This function creates a population from a distribution.
+#' This function creates a summary stats for population, samples and parameter(s) of interest.
 #' Author: Tao Guo
 #'
 #'@param population The virtual population

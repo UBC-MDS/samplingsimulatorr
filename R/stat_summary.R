@@ -13,4 +13,5 @@
 #'stat_summary <- function(pop, samples, parameter)
 stat_summary <- function(population, samples, parameter) {
 
+  print(summary(population))
 }

@@ -15,10 +15,10 @@
 #'generate_virtual_pop(100, "n_accidents_per_hr", rpois, 2)
 generate_virtual_pop <- function(N, var_name, dist, ... ){
 
-  dist <- match.fun(dist)
+  distribution <- match.fun(dist)
 
   var_name <- enquo(var_name)
-  pop <- tibble({{var_name}} := dist(n = N, ...))
+  pop <- tibble({{var_name}} := distribution(n = N, ...))
 
-  return(pop)
+  return (pop)
 }

@@ -17,5 +17,47 @@
 #' samples <- draw_samples(pop, 3, c(1, 10))
 #' plot_sampling_hist(pop, samples, var_name, c(1, 10), 3)
 plot_sampling_hist <- function(pop, samples, var_name, n_s, reps){
+  samples <-
+    samples %>%
+    ungroup()
+
+  x_min <-
+    samples %>%
+    select({{var_name}}) %>%
+    unlist() %>%
+    quantile(0.05)
+
+  x_max <-
+    samples %>%
+    ungroup() %>%
+    select({{var_name}}) %>%
+    unlist() %>%
+    quantile(0.95)
+
+
+  summary <-
+    samples %>%
+    group_by(replicate, size, rep_size) %>%
+    summarise(mean = mean({{var_name}}))
+
+
+  sampling_dist<- list()
+  for (i in 1:length(n_s)){
+    sampling_dist[[ i ]] <-
+      summary %>%
+      filter(size == n_s[i]) %>%
+      ggplot() + geom_histogram(aes(mean, ..density..)) +
+      ggtitle(paste("sample size", n_s[i])) +
+      coord_cartesian(xlim = c(x_min, x_max)) +
+      theme(plot.title = element_text(size = 10))
+    if (i > 1){
+      sampling_dist[[i]] <- sampling_dist[[i]] + theme(axis.title.y=element_blank(),
+                                                       axis.text.y=element_blank(),
+                                                       axis.ticks.y=element_blank())
+    }
+
+  }
+
+  return(grid.arrange(grobs = sampling_dist, nrow=1, top = "Sampling Distribution Histograms"))
 
 }

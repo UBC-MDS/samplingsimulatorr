@@ -27,3 +27,5 @@ RoxygenNote: 7.0.2
 Imports: 
     dplyr,
     rlang
+Suggests: 
+    testthat (>= 2.1.0)

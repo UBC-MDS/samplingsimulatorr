@@ -17,8 +17,7 @@
 #' @importFrom rlang :=
 #' @importFrom dplyr tibble
 #' @export
-generate_virtual_pop <- function(N, var_name, dist, ... ){
-
+generate_virtual_pop <- function(N, var_name, dist, ...) {
   distribution <- match.fun(dist)
 
   var_name <- dplyr::enquo(var_name)

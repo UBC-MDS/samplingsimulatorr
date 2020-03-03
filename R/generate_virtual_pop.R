@@ -15,13 +15,12 @@
 #'generate_virtual_pop(100, "n_accidents_per_hr", rpois, 2)
 #'
 #' @importFrom rlang :=
-#' @importFrom dplyr tibble
 #' @export
 generate_virtual_pop <- function(N, var_name, dist, ...) {
   distribution <- match.fun(dist)
 
   var_name <- dplyr::enquo(var_name)
-  pop <- tibble({{var_name}} := distribution(n = N, ...))
+  pop <- dplyr::tibble({{var_name}} := distribution(n = N, ...))
 
   return (pop)
 }

@@ -16,11 +16,20 @@
 #'
 #' @importFrom rlang :=
 #' @export
-generate_virtual_pop <- function(N, var_name, dist, ...) {
-  distribution <- match.fun(dist)
+generate_virtual_pop <- function(N, var_name, dist, ... ){
+  if (class(try(match.fun(dist))) == "try-error") {
+    stop('This is not a vaild function')
+  } else {
+    distribution <- match.fun(dist)
+  }
 
   var_name <- dplyr::enquo(var_name)
-  pop <- dplyr::tibble({{var_name}} := distribution(n = N, ...))
 
-  return (pop)
+  if (class(try(distribution(n = N, ...))) == "try-error") {
+    stop('Please check the parameters of the distribution function')
+  } else {
+    pop <- dplyr::tibble({{var_name}} := distribution(n = N, ...))
+  }
+
+  return(pop)
 }

@@ -9,12 +9,12 @@ draw_samples(pop, reps, n_s)
 \arguments{
 \item{pop}{the virtual population as a tibble}
 
-\item{reps}{the number of replication for each sample size as an integer}
+\item{reps}{the number of replication for each sample size as an integer value}
 
 \item{n_s}{the sample size for each one of the samples as an array}
 }
 \value{
-a two column tibble containing the sample numbers and sample values
+a tibble containing the sample numbers and sample values
 }
 \description{
 This function draws samples of various sizes from a population.

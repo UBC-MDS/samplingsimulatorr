@@ -11,6 +11,9 @@
 #'
 #'@examples
 #'stat_summary <- function(pop, samples, parameter)
+#'
+#' @importFrom rlang :=
+#' @export
 stat_summary <- function(population, samples, parameter) {
   sub_pop <- population[[names(population)]]
   sub_samples <- samples[[names(samples)]]

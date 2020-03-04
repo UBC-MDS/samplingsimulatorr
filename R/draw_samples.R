@@ -50,6 +50,5 @@ draw_samples <- function(pop, reps, n_s){
                 dplyr::mutate(size = n_s[sample_size], rep_size = reps[rep])
         }
     }
-
   return(dplyr::bind_rows(samples))
 }

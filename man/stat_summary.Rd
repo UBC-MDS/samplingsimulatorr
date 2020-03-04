@@ -22,4 +22,5 @@ Author: Tao Guo
 }
 \examples{
 stat_summary <- function(pop, samples, parameter)
+
 }

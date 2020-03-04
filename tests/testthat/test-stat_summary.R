@@ -1,3 +1,3 @@
 test_that("multiplication works", {
-  expect_equal(2 * 2, 4)
+  expect_equal(names(stat_summary(dplyr::tibble(x = 1:10), dplyr::tibble(x = 1:10), c('mean', 'sd'))), c('data', 'mean', 'sd'))
 })

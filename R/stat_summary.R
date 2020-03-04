@@ -15,12 +15,15 @@
 #' @importFrom rlang :=
 #' @export
 stat_summary <- function(population, samples, parameter) {
+
   sub_pop <- population[[names(population)]]
   sub_samples <- samples[[names(samples)]]
+
   pop <- dplyr::tibble('data' := c('population', 'samples'))
+
   for (i in (1:length(parameter))) {
-    if (class(try(match.fun(parameter[i]), silent = TRUE)
-    ) == "try-error") {
+    if (class(try(match.fun(parameter[i]), silent = TRUE)) == "try-error") {
+
       stop('This is not a vaild function')
 
     } else {
@@ -28,10 +31,7 @@ stat_summary <- function(population, samples, parameter) {
     }
 
     pop <-
-      cbind(pop, dplyr::tibble(!!parameter[i] := c(
-        para_func(sub_pop), para_func(sub_samples)
-      )))
-
+      cbind(pop, dplyr::tibble(!!parameter[i] := c(para_func(sub_pop), para_func(sub_samples))))
 
   }
 

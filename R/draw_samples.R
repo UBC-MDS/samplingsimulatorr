@@ -33,7 +33,7 @@ draw_samples <- function(pop, reps, n_s){
     #check that all values of n_s array are integer values
     for (i in n_s){
         if((i - round(i)) != 0){
-            stop("At least one value in n_s array is not an integer value")
+            stop("At least one value in sample size array is not an integer value")
         }
     }
         

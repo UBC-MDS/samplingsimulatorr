@@ -17,7 +17,7 @@
 stat_summary <- function(population, samples, parameter) {
   sub_pop <- population[[names(population)]]
   sub_samples <- samples[[names(samples)]]
-  pop <- tibble('data' := c('population', 'samples'))
+  pop <- dplyr::tibble('data' := c('population', 'samples'))
   for (i in (1:length(parameter))) {
     if (class(try(match.fun(parameter[i]), silent = TRUE)
     ) == "try-error") {

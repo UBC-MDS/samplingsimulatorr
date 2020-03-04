@@ -16,25 +16,33 @@
 #'
 #' @importFrom rlang :=
 #' @export
-generate_virtual_pop <- function(N, var_name, dist, ... ){
+generate_virtual_pop <- function(N, var_name, dist, ... ) {
 
   if (N - as.integer(N) != 0 | N <= 0) {
 
     stop('Please enter a positive integer for sample size')
+
   }
 
   if (class(try(match.fun(dist), silent=TRUE)) == "try-error") {
+
     stop('This is not a vaild function, please check https://cran.r-project.org/web/views/Distributions.html for avaliable distribution functions')
+
   } else {
+
     distribution <- match.fun(dist)
   }
 
   var_name <- dplyr::enquo(var_name)
 
   if (class(try(distribution(n = N, ...), silent=TRUE)) == "try-error") {
+
     stop('Please check the parameters of the distribution function')
+
   } else {
+
     pop <- dplyr::tibble({{var_name}} := distribution(n = N, ...))
+
   }
 
   return(pop)

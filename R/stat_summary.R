@@ -16,6 +16,22 @@
 #' @export
 stat_summary <- function(population, samples, parameter) {
 
+  if (!is.data.frame(population)) {
+    stop("'population' should be input as a dataframe")
+  }
+
+  if(nrow(population) <= 0 || typeof(population) != 'list') {
+    stop("Population input is not a valid tibble")
+  }
+
+  if (!is.data.frame(samples)) {
+    stop("'samples' should be input as a dataframe")
+  }
+
+  if(nrow(samples) <= 0 || typeof(samples) != 'list') {
+    stop("Samples input is not a valid tibble")
+  }
+
   sub_pop <- population[[names(population)]]
   sub_samples <- samples[[names(samples)]]
 

@@ -12,6 +12,26 @@
 #'@examples
 #'stat_summary <- function(pop, samples, parameter)
 stat_summary <- function(population, samples, parameter) {
+  sub_pop <- population[[names(population)]]
+  sub_samples <- samples[[names(samples)]]
+  pop <- tibble('data' := c('population', 'samples'))
+  for (i in (1:length(parameter))) {
+    if (class(try(match.fun(parameter[i]), silent = TRUE)
+    ) == "try-error") {
+      stop('This is not a vaild function')
 
-  print(summary(population))
+    } else {
+      para_func <- match.fun(parameter[i])
+    }
+
+    pop <-
+      cbind(pop, dplyr::tibble(!!parameter[i] := c(
+        para_func(sub_pop), para_func(sub_samples)
+      )))
+
+
+  }
+
+  return (pop)
+
 }

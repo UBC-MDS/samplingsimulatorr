@@ -39,9 +39,10 @@ draw_samples <- function(pop, reps, n_s){
         }
     }
     
-    #begin function
+    #Create empty list to contain samples
     samples <- list()
   
+    #Fill samples object per inputs
     for (sample_size in 1:length(n_s)){
         for (rep in 1:length(reps)){
             samples[[sample_size * length(reps) + rep]] <- pop %>% 

@@ -50,5 +50,5 @@ draw_samples <- function(pop, reps, n_s){
         }
     }
 
-  return(bind_rows(samples))
+  return(dplyr::bind_rows(samples))
 }

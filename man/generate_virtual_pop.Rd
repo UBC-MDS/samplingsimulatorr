@@ -25,4 +25,5 @@ Author: Tao Guo
 \examples{
 generate_virtual_pop(100, "height", rnorm, 0, 1)
 generate_virtual_pop(100, "n_accidents_per_hr", rpois, 2)
+
 }

@@ -21,7 +21,7 @@ stat_summary <- function(population, samples, parameter) {
   }
 
   if(nrow(population) <= 0 || typeof(population) != 'list') {
-    stop("Population input is not a valid tibble")
+    stop("'population' input is not a valid tibble")
   }
 
   if (!is.data.frame(samples)) {
@@ -29,7 +29,7 @@ stat_summary <- function(population, samples, parameter) {
   }
 
   if(nrow(samples) <= 0 || typeof(samples) != 'list') {
-    stop("Samples input is not a valid tibble")
+    stop("'samples' input is not a valid tibble")
   }
 
   sub_pop <- population[[names(population)]]

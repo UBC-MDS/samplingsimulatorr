@@ -7,7 +7,7 @@
 #' @param reps the number of replication for each sample size as an integer value
 #' @param n_s the sample size for each one of the samples as an array
 #'
-#' @return a two column tibble containing the sample numbers and sample values
+#' @return a tibble containing the sample numbers and sample values
 #' @export
 #'
 #' @examples

@@ -15,31 +15,36 @@
 #' samples <- draw_samples(pop, 3, c(1, 10))
 draw_samples <- function(pop, reps, n_s){
     
+    #Check population input is tibble with at least one value
     if(nrow(pop) <= 0 || typeof(pop) != 'list') {
         stop("Population input is not a valid tibble")
     }
     
+    #Check number of reps is an integer
     if((reps - round(reps)) != 0) {
         stop("Number of replications input must be an integer value")
     }
     
+    #Check number of reps is positive
     if(reps <= 0 ){
         stop("Number of replications must be greater than 0")
     }
     
+    #Check all values in sample size array are integers
     for (i in n_s){
         if((i - round(i)) != 0){
             stop("At least one value in sample size array is not an integer value")
         }
     }
-        
+    
+    #begin function
     samples <- list()
   
     for (sample_size in 1:length(n_s)){
         for (rep in 1:length(reps)){
             samples[[sample_size * length(reps) + rep]] <- pop %>% 
-                rep_sample_n(size = n_s[sample_size], reps = reps[rep], replace = TRUE) %>% 
-                mutate(size = n_s[sample_size], rep_size = reps[rep])
+                infer::rep_sample_n(size = n_s[sample_size], reps = reps[rep], replace = TRUE) %>% 
+                dplyr::mutate(size = n_s[sample_size], rep_size = reps[rep])
         }
     }
 

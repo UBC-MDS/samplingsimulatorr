@@ -18,14 +18,14 @@
 #' @export
 generate_virtual_pop <- function(N, var_name, dist, ... ) {
 
-  # Check if the N, virtual population size, which need to be a positive integer
+  # Check if the N, number of samples, which need to be a positive integer
   if (N - as.integer(N) != 0 | N <= 0) {
 
-    stop('Please enter a positive integer for virtual population size')
+    stop('Please enter a positive integer for samples')
 
   }
 
-  # Check if the distribution function exist. Provide releated reference.
+  # Check if the distribution function exist. Provide releated reference
   if (class(try(match.fun(dist), silent=TRUE)) == "try-error") {
 
     stop('This is not a vaild function, please check https://cran.r-project.org/web/views/Distributions.html for avaliable distribution functions')
@@ -37,7 +37,7 @@ generate_virtual_pop <- function(N, var_name, dist, ... ) {
 
   var_name <- dplyr::enquo(var_name)
 
-  # Check if the parameters for the distribution function correct.
+  # Check if the parameters for the distribution function correct
   if (class(try(distribution(n = N, ...), silent=TRUE)) == "try-error") {
 
     stop('Please check the parameters of the distribution function')

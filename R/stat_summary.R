@@ -30,8 +30,7 @@ stat_summary <- function(population, samples, parameter) {
       para_func <- match.fun(parameter[i])
     }
 
-    pop <-
-      cbind(pop, dplyr::tibble(!!parameter[i] := c(para_func(sub_pop), para_func(sub_samples))))
+    pop <- cbind(pop, dplyr::tibble(!!parameter[i] := c(para_func(sub_pop), para_func(sub_samples))))
 
   }
 

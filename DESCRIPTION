@@ -29,5 +29,6 @@ Imports:
     rlang,
     infer,
     magrittr
+    rlang
 Suggests: 
     testthat (>= 2.1.0)

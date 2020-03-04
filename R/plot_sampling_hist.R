@@ -17,6 +17,12 @@
 #' samples <- draw_samples(pop, 3, c(1, 10))
 #' plot_sampling_hist(pop, samples, var_name, c(1, 10), 3)
 plot_sampling_hist <- function(pop, samples, var_name, n_s, reps){
+  if (!"data.frame" %in% c(class(samples))) stop("Samples should be a data frame or a tibble")
+  if (!is.numeric(reps) == TRUE) stop("Number of replications should be a numerical value, a vector with length 1")
+  for (i in n_s){
+    if (class(i) != "numeric") stop("Samples' sizes should be a list or a vector with only numeric values")
+  }
+
   samples <-
     samples %>%
     ungroup()

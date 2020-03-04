@@ -38,15 +38,8 @@ generate_virtual_pop <- function(N, var_name, dist, ... ) {
   var_name <- dplyr::enquo(var_name)
 
   # Check if the parameters for the distribution function correct
-  if (class(try(distribution(n = N, ...), silent=TRUE)) == "try-error") {
 
-    stop('Please check the parameters of the distribution function')
-
-  } else {
-
-    pop <- dplyr::tibble({{var_name}} := distribution(n = N, ...))
-
-  }
+  pop <- try(dplyr::tibble({{var_name}} := distribution(n = N, ...)), TRUE)
 
   return(pop)
 }

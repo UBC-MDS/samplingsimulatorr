@@ -8,6 +8,8 @@
 #' @param n_s the sample size for each one of the samples as an array
 #'
 #' @return a tibble containing the sample numbers and sample values
+#' 
+#' @importFrom magrittr %>%
 #' @export
 #'
 #' @examples

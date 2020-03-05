@@ -20,6 +20,6 @@ plot_sample_hist <- function(pop, samples, var_name, n_s){
   # which is not user facing
   sample_hist <- create_sample_histograms(pop, samples, {{var_name}}, n_s)
   num_rows_plots  <- max(1, round(length(sample_hist) / 4))
-  return(grid.arrange(grobs = sample_hist, nrow=num_rows_plots,
+  return(gridExtra::grid.arrange(grobs = sample_hist, nrow=num_rows_plots,
                       top = "Sample Distribution Histograms"))
 }

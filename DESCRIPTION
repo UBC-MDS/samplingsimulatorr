@@ -24,3 +24,14 @@ Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.0.2
+Imports: 
+    dplyr,
+    rlang,
+    infer,
+    magrittr,
+    rlang,
+    gridExtra,
+    ggplot2
+Suggests: 
+    testthat (>= 2.1.0)
+

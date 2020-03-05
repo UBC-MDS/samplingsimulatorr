@@ -15,9 +15,9 @@
 #' @importFrom magrittr %>%
 #' @examples
 #' pop <- generate_virtual_pop(100, "Variable", rnorm, 0, 1)
-#' samples <- draw_samples(pop, 3, c(1, 10))
-#' plot_sampling_hist(pop, samples, Variable, c(1, 10), 3)
-plot_sampling_hist <- function(pop, samples, var_name, n_s, reps){
+#' samples <- draw_samplexs(pop, 3, c(1, 10))
+#' plot_sampling_hist(samples, Variable, c(1, 10), 3)
+plot_sampling_hist <- function(samples, var_name, n_s, reps){
 
   # convert var_name to string for testing
   col_name <- toString(rlang::get_expr(rlang::enquo(var_name)))

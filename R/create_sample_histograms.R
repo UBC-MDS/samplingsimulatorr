@@ -11,6 +11,7 @@
 #' @return a list of the sample histogram plots
 #' @export
 #'
+#' @importFrom magrittr %>%
 #' @examples
 #' pop <- generate_virtual_pop(100, height, rnorm, 0, 1)
 #' samples <- draw_samples(pop, 3, c(1, 10))
@@ -19,7 +20,7 @@ create_sample_histograms <- function(pop, samples, var_name, n_s){
 
   # START INPUT TESTS #
   # convert var_name to string for testing
-  col_name <- toString(get_expr(enquo(var_name)))
+  col_name <- toString(get_expr(rlang::enquo(var_name)))
 
   # check pop df input
   if (!is.data.frame(samples)) {
@@ -53,8 +54,8 @@ create_sample_histograms <- function(pop, samples, var_name, n_s){
   # for each sample size, generate tidy data needed for histogram plots
   for (i in 1:length(n_s)){
     samples_hist[[i]] <- samples %>%
-      filter(replicate == 1, size == n_s[i]) %>%
-      ggplot() +
+      dplyr::filter(replicate == 1, size == n_s[i]) %>%
+      ggplot2::ggplot() +
       geom_histogram(aes({{var_name}}, ..density..)) +
       ggtitle(paste("Sample Size=", n_s[i])) +
       theme_bw() +

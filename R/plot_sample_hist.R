@@ -14,7 +14,7 @@
 #' @examples
 #' pop <- generate_virtual_pop(100, height, rnorm, 0, 1)
 #' samples <- draw_samples(pop, 3, c(1, 10))
-#' plot_sample_histograms(pop, samples, height, c(1, 10))
+#' plot_sample_hist(pop, samples, height, c(1, 10))
 plot_sample_hist <- function(pop, samples, var_name, n_s){
   # Note: inputs have already been tested in `create_sample_histograms`
   # which is not user facing

@@ -15,7 +15,7 @@
 #' @importFrom magrittr %>%
 #' @examples
 #' pop <- generate_virtual_pop(100, "Variable", rnorm, 0, 1)
-#' samples <- draw_samplexs(pop, 3, c(1, 10))
+#' samples <- draw_samples(pop, 3, c(1, 10))
 #' plot_sampling_hist(samples, Variable, c(1, 10), 3)
 plot_sampling_hist <- function(samples, var_name, n_s, reps){
 
@@ -52,7 +52,7 @@ plot_sampling_hist <- function(samples, var_name, n_s, reps){
 
   x_max <-
     samples %>%
-    ungroup() %>%
+    dplyr::ungroup() %>%
     dplyr::select({{var_name}}) %>%
     unlist() %>%
     quantile(0.95)
@@ -70,15 +70,15 @@ plot_sampling_hist <- function(samples, var_name, n_s, reps){
       summary %>%
       dplyr::filter(size == n_s[i]) %>%
       ggplot2::ggplot() +
-      ggplot2::geom_histogram(aes(mean, ..density..)) +
+      ggplot2::geom_histogram(ggplot2::aes(mean, ..density..)) +
       ggplot2::ggtitle(paste("sample size", n_s[i])) +
       ggplot2::coord_cartesian(xlim = c(x_min, x_max)) +
-      ggplot2::theme(plot.title = element_text(size = 10))
+      ggplot2::theme(plot.title = ggplot2::element_text(size = 10))
     if (i > 1){
       sampling_dist[[i]] <- sampling_dist[[i]] +
-        ggplot2::theme(axis.title.y=element_blank(),
-                       axis.text.y=element_blank(),
-                       axis.ticks.y=element_blank())
+        ggplot2::theme(axis.title.y = ggplot2::element_blank(),
+                       axis.text.y = ggplot2::element_blank(),
+                       axis.ticks.y = ggplot2::element_blank())
     }
 
   }

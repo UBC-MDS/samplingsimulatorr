@@ -20,7 +20,7 @@ create_sample_histograms <- function(pop, samples, var_name, n_s){
 
   # START INPUT TESTS #
   # convert var_name to string for testing
-  col_name <- toString(get_expr(rlang::enquo(var_name)))
+  col_name <- toString(rlang::get_expr(rlang::enquo(var_name)))
 
   # check pop df input
   if (!is.data.frame(samples)) {
@@ -56,15 +56,16 @@ create_sample_histograms <- function(pop, samples, var_name, n_s){
     samples_hist[[i]] <- samples %>%
       dplyr::filter(replicate == 1, size == n_s[i]) %>%
       ggplot2::ggplot() +
-      geom_histogram(aes({{var_name}}, ..density..)) +
-      ggtitle(paste("Sample Size=", n_s[i])) +
-      theme_bw() +
-      theme(plot.title = element_text(size = 10))
+      ggplot2::geom_histogram(ggplot2::aes({{var_name}}, ..density..)) +
+      ggplot2::ggtitle(paste("Sample Size=", n_s[i])) +
+      ggplot2::theme_bw() +
+      ggplot2::theme(plot.title = ggplot2::element_text(size = 10))
 
     if (i > 1){
-      samples_hist[[i]] <- samples_hist[[i]] + theme(axis.title.y=element_blank(),
-                                                     axis.text.y=element_blank(),
-                                                     axis.ticks.y=element_blank())
+      samples_hist[[i]] <- samples_hist[[i]] +
+        ggplot2::theme(axis.title.y = ggplot2::element_blank(),
+                       axis.text.y = ggplot2::element_blank(),
+                       axis.ticks.y = ggplot2::element_blank())
     }
 
   }
@@ -72,13 +73,13 @@ create_sample_histograms <- function(pop, samples, var_name, n_s){
   # create list of sample histograms
   samples_hist[[length(n_s) + 1]] <-
     pop %>%
-    ggplot() + geom_histogram(aes({{var_name}}, ..density..)) +
-    ggtitle("True Population") +
-    theme_bw() +
-    theme(plot.title = element_text(size = 10),
-          axis.title.y=element_blank(),
-          axis.text.y=element_blank(),
-          axis.ticks.y=element_blank())
+    ggplot2::ggplot() + ggplot2::geom_histogram(ggplot2::aes({{var_name}}, ..density..)) +
+    ggplot2::ggtitle("True Population") +
+    ggplot2::theme_bw() +
+    ggplot2::theme(plot.title = ggplot2::element_text(size = 10),
+                   axis.title.y = ggplot2::element_blank(),
+                   axis.text.y = ggplot2::element_blank(),
+                   axis.ticks.y = ggplot2::element_blank())
 
 
   return(samples_hist)

@@ -25,7 +25,14 @@ LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.0.2
 Imports: 
-    ggplot2,
-    testthat,
+
+    dplyr,
+    rlang,
+    infer,
+    magrittr,
+    rlang,
     gridExtra,
-    dplyr
+    ggplot2
+Suggests: 
+    testthat (>= 2.1.0)
+

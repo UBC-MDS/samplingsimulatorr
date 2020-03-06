@@ -31,8 +31,8 @@ and "help wanted" is open to whoever wants to implement it.
 
 ### Write Documentation
 
-samplingsimulatorpy could always use more documentation, whether as part of the
-official samplingsimulatorpy docs, in docstrings, or even on the web in blog posts,
+samplingsimulatorr could always use more documentation, whether as part of the
+official samplingsimulatorr docs, in docstrings, or even on the web in blog posts,
 articles, and such.
 
 ### Submit Feedback
@@ -101,4 +101,4 @@ Before you submit a pull request, check that it meets these guidelines:
 
 ## Code of Conduct
 
-Please note that the samplingsimulatorpy project is released with [this Contributor Code of Conduct](CONDUCT.md). By contributing to this project you agree to abide by its terms.
+Please note that the samplingsimulatorr project is released with [this Contributor Code of Conduct](CONDUCT.md). By contributing to this project you agree to abide by its terms.

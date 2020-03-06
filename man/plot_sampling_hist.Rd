@@ -4,11 +4,9 @@
 \alias{plot_sampling_hist}
 \title{Create a sampling distribution histogram from samples}
 \usage{
-plot_sampling_hist(pop, samples, var_name, n_s, reps)
+plot_sampling_hist(samples, var_name, n_s, reps)
 }
 \arguments{
-\item{pop}{the virtual population as a tibble}
-
 \item{samples}{the samples as a tibble}
 
 \item{var_name}{the name of the variable/parameter of interest that is being generated}
@@ -27,5 +25,5 @@ Author: Yue(Alex) Jiang
 \examples{
 pop <- generate_virtual_pop(100, "Variable", rnorm, 0, 1)
 samples <- draw_samples(pop, 3, c(1, 10))
-plot_sampling_hist(pop, samples, var_name, c(1, 10), 3)
+plot_sampling_hist(samples, Variable, c(1, 10), 3)
 }

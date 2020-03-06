@@ -48,21 +48,19 @@ If you are proposing a feature:
 
 ## Get Started!
 
-Ready to contribute? Here's how to set up `samplingsimulatorpy` for local development.
+Ready to contribute? Here's how to set up `samplingsimulatorr` for local development.
 
-1. Fork the `samplingsimulatorpy` repo on GitHub.
+1. Fork the `samplingsimulatorr` repo on GitHub.
 
 2. Clone your fork locally:
 
 	```
-	git clone git@github.com:your_name_here/samplingsimulatorpy.git
+	git clone git@github.com:your_name_here/samplingsimulatorr.git
 	```
-
-3. Install your local copy with Poetry, this is how you set up your fork for local development:
+3. Add upstream:
 
 	```
-	cd samplingsimulatorpy/
-	poetry install
+	git remote add upstream https://github.com/UBC-MDS/samplingsimulatorr.git
 	```
 
 4. Create a branch for local development:
@@ -73,10 +71,11 @@ Ready to contribute? Here's how to set up `samplingsimulatorpy` for local develo
 
    	Now you can make your changes locally.
 
-5. When you're done making changes, check that your changes pass the tests by running pytest
+5. When you're done making changes, check that your changes pass the tests by running check()
 
 	```
-	poetry run pytest
+	library(devtools)
+	check()
 	```
 
 6. Commit your changes and push your branch to GitHub:
@@ -97,27 +96,8 @@ Before you submit a pull request, check that it meets these guidelines:
 2. If the pull request adds functionality, the docs should be updated. Put
    your new functionality into a function with a docstring, and add the
    feature to the list in README.md.
-3. The pull request should work for Python 3.7 & 3.8. Check https://github.com/UBC-MDS/samplingsimulatorr/pulls and make sure that the tests pass for all supported Python versions.
 
 
-## Tips
-
-To run a subset of tests:
-
-```
-py.test tests.test_samplingsimulatorpy
-```
-
-## Deploying
-
-A reminder for the maintainers on how to deploy:
-
-- Ensure the following secrets are recorded on GitHub:
-	- CODECOV_TOKEN	
-	- PYPI_USERNAME
- 	- PYPI_PASSWORD	
-
- GitHub Actions should build and deploy to testPyPI when a pull request is merged into master.
 
 ## Code of Conduct
 

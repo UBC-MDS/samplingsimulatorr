@@ -11,7 +11,7 @@ You can contribute in many ways:
 
 ### Report Bugs
 
-Report bugs at https://github.com/UBC-MDS/samplingsimulatorr/issues.
+Report bugs at [here](https://github.com/UBC-MDS/samplingsimulatorr/issues).
 
 If you are reporting a bug, please include:
 
@@ -37,7 +37,7 @@ articles, and such.
 
 ### Submit Feedback
 
-The best way to send feedback is to file an issue at https://github.com/UBC-MDS/samplingsimulatorr/issues.
+The best way to send feedback is to file an issue at [here](https://github.com/UBC-MDS/samplingsimulatorr/issues).
 
 If you are proposing a feature:
 
@@ -71,7 +71,7 @@ Ready to contribute? Here's how to set up `samplingsimulatorr` for local develop
 
    	Now you can make your changes locally.
 
-5. When you're done making changes, check that your changes pass the tests by running check()
+5. When you're done making changes, check that your changes pass the tests by running `check()`
 
 	```
 	library(devtools)
@@ -86,7 +86,7 @@ Ready to contribute? Here's how to set up `samplingsimulatorr` for local develop
 	git push origin name-of-your-bugfix-or-feature
 	```
 
-7. Submit a pull request through the GitHub website.
+7. Submit a pull request through the GitHub website [here](https://github.com/UBC-MDS/samplingsimulatorr/pulls).
 
 ## Pull Request Guidelines
 

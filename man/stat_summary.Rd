@@ -21,6 +21,6 @@ This function creates a summary stats for population, samples and parameter(s) o
 Author: Tao Guo
 }
 \examples{
-stat_summary <- function(pop, samples, parameter)
+stat_summary(dplyr::tibble(x = 1:3), dplyr::tibble(x = 1:3), 'mean')
 
 }

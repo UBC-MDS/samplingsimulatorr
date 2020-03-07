@@ -29,7 +29,6 @@ Imports:
     rlang,
     infer,
     magrittr,
-    rlang,
     gridExtra,
     ggplot2
 Suggests: 

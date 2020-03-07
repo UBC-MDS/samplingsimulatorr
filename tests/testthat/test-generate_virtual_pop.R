@@ -23,3 +23,9 @@ test_that('Check the distribution', {
   helper_correct_values <- rexp(1000, 5)
   expect_equal(helper_object1, helper_correct_values)
 })
+
+test_that("Check that input errors are being caught as expected", {
+  expect_error(colnames(generate_virtual_pop(-100, "test_name", rnorm, 0, 1)))
+  expect_error(generate_virtual_pop(100, 'var_name', rnorml, 0, 1))
+  expect_error(generate_virtual_pop(10.1, 'var_name', rnorm, 0, 1))
+})

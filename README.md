@@ -10,6 +10,17 @@
 `samplingsimulatorr` is an R package intended to assist those teaching
 or learning basic statistical inference.
 
+### Authors
+
+| Name             | GitHub                                          |
+| ---------------- | ----------------------------------------------- |
+| Holly Williams   | [hwilliams10](https://github.com/hwilliams10)   |
+| Lise Braaten     | [lisebraaten](https://github.com/lisebraaten)   |
+| Tao Guo          | [tguo9](https://github.com/tguo9)               |
+| Yue (Alex) Jiang | [YueJiangMDSV](https://github.com/YueJiangMDSV) |
+
+### Overview
+
 This package allows users to generate virtual populations which can be
 sampled from in order to compare and contrast sample vs sampling
 distributions for different sample sizes. The package also allows users
@@ -33,11 +44,11 @@ And the development version from [GitHub](https://github.com/) with:
 devtools::install_github("UBC-MDS/samplingsimulatorr")
 ```
 
-### Function Descriptions
+## Function Descriptions
 
   - `generate_virtual_pop` creates a virtual population.
-      - **Inputs** : distribution function (i.e. `rnorm`, `rexp`, etc),
-        the paramaters required by the distribution function, and the
+      - **Inputs** : distribution function (i.e. `rnorm`, `rexp`, etc),
+        the parameters required by the distribution function, and the
         size of the population.
       - **Outputs**: the virtual population as a tibble
   - `draw_samples` generates samples of different sizes
@@ -60,7 +71,7 @@ devtools::install_github("UBC-MDS/samplingsimulatorr")
       - **Inputs**: population, samples, parameter(s) of interest
       - **Outputs**: summary tibble
 
-#### How these fit into the R ecosystem?
+#### How do these fit into the R ecosystem?
 
 To the best of our knowledge, there is currently no existing R package
 with the specific functionality to create virtual populations and make
@@ -74,27 +85,155 @@ however our package will be more customizable. Our summary will only
 include the statistical parameters of interest and will provide a
 comparison between the sample, sampling, and true population parameters.
 
-### Features
+## Dependencies
 
-  - Will be updated once functions are created
+  - dplyr
+  - rlang
+  - infer
+  - magrittr
+  - gridExtra
+  - ggplot2
 
-### Dependencies
+## Usage
 
-  - Will be updated once functions are created
+#### `generate_virtual_pop`
 
-### Usage
+``` r
+library(samplingsimulatorr)
+generate_virtual_pop(N, var_name, dist, ... )
+```
 
-  - Will be updated once functions are created
+**Arguments:**
 
-### Documentation
+  - `N`: The number of samples
+  - `var_name`: The variable name that we need to create
+  - `dist`: The distribution that we are generating samples from
+  - `...`: The arguments required for the distribution function
 
-The official documentation is hosted on Read the Docs:
-<https://samplingsimulatorpy.readthedocs.io/en/latest/>
+**Example:**
 
-### Credits
+`pop <- generate_virtual_pop(100, "height", rnorm, 0, 1)`
 
-This package was created with Cookiecutter and the
-UBC-MDS/cookiecutter-ubc-mds project template, modified from the
-[pyOpenSci/cookiecutter-pyopensci](https://github.com/pyOpenSci/cookiecutter-pyopensci)
-project template and the
-[audreyr/cookiecutter-pypackage](https://github.com/audreyr/cookiecutter-pypackage).
+#### `draw_samples`
+
+``` r
+library(samplingsimulatorr)
+draw_samples(pop, reps, n_s)
+```
+
+**Arguments:**
+
+  - `pop` the virtual population as a tibble
+  - `reps` the number of replication for each sample size as an integer
+    value
+  - `n_s` the sample size for each one of the samples as an array
+
+**Example:**
+
+`samples <- draw_samples(pop, 3, c(1, 10))`
+
+#### `plot_sample_hist`
+
+``` r
+library(samplingsimulatorr)
+plot_sample_hist(pop, samples, var_name, n_s)
+```
+
+**Arguments:**
+
+  - `pop` the virtual population as a tibble
+  - `samples` the samples as a tibble
+  - `var_name` the name of the column for the variable that is being
+    generated
+  - `n_s` a vector of the sample sizes (each sample size needs to be in
+    the `samples` df input)
+
+**Example:**
+
+`plot_sample_hist(pop, samples, "height", c(1, 10))`
+
+#### `plot_sampling_hist`
+
+``` r
+library(samplingsimulatorr)
+plot_sampling_hist(pop, samples, var_name, n_s)
+```
+
+**Arguments:**
+
+  - `pop` the virtual population as a tibble
+  - `samples` the samples as a tibble
+  - `var_name` the name of the column for the variable that is being
+    generated
+  - `n_s` a vector of the sample sizes (each sample size needs to be in
+    the `samples` df input)
+  - `reps` the number of replication for each sample size as an integer
+    (should be less than or equal to the number of replications in
+    `samples`)
+
+**Example:**
+
+`plot_sample_hist(pop, samples, "height", c(1, 10), 3)`
+
+#### `stat_summary`
+
+``` r
+library(samplingsimulatorr)
+stat_summary(pop, samples, paramater)
+```
+
+**Arguments**
+
+  - `population` The virtual population
+  - `samples` The drawed samples
+  - `parameter` The parameter(s) of interest
+
+**Example**
+
+`stat_summary(pop, samples, c(mean, median))`
+
+### Example Usage Scenario
+
+``` r
+library(samplingsimulatorr)
+
+# generate population
+pop <- generate_virtual_pop(1000, "height", rnorm, 0, 1)
+head(pop)
+#> # A tibble: 6 x 1
+#>   height
+#>    <dbl>
+#> 1  2.09 
+#> 2  1.50 
+#> 3 -1.68 
+#> 4 -0.169
+#> 5 -0.874
+#> 6 -0.612
+```
+
+``` r
+# create samples
+samples <- draw_samples(pop, 3, c(1, 10, 50, 100))
+head(samples)
+#> # A tibble: 6 x 4
+#> # Groups:   replicate [3]
+#>   replicate height  size rep_size
+#>       <int>  <dbl> <dbl>    <dbl>
+#> 1         1 -1.92      1        3
+#> 2         2 -0.868     1        3
+#> 3         3 -0.682     1        3
+#> 4         1  0.459    10        3
+#> 5         1  1.93     10        3
+#> 6         1 -1.65     10        3
+```
+
+``` r
+# plot sample histogram
+plot_sample_hist(pop, samples, height, c(10, 50, 100))
+#> `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+#> `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+#> `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+#> `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+```
+
+<img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />

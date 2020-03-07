@@ -63,9 +63,10 @@ devtools::install_github("UBC-MDS/samplingsimulatorr")
       - **Outputs**: returns a grid of sample distribution plots
   - `plot_sampling_dist` creates sampling distributions for different
     sample sizes.
-      - **Inputs** : population to sample from, the samples to plot, and
-        a vector of the sample sizes
-      - **Outputs**: returns a grid of sampling distribution plots
+      - **Inputs** : samples created by `draw_samples` function,
+        variable of interest, a vector of the sample sizes, and the
+        number of replication for each sample size
+      - **Outputs**: returns a list of sampling distribution plots
   - `stat_summary`: returns a summary of the statistical parameters of
     interest
       - **Inputs**: population, samples, parameter(s) of interest
@@ -156,12 +157,11 @@ plot_sample_hist(pop, samples, var_name, n_s)
 
 ``` r
 library(samplingsimulatorr)
-plot_sampling_hist(pop, samples, var_name, n_s)
+plot_sampling_hist(samples, var_name, n_s, reps)
 ```
 
 **Arguments:**
 
-  - `pop` the virtual population as a tibble
   - `samples` the samples as a tibble
   - `var_name` the name of the column for the variable that is being
     generated
@@ -173,7 +173,7 @@ plot_sampling_hist(pop, samples, var_name, n_s)
 
 **Example:**
 
-`plot_sample_hist(pop, samples, "height", c(1, 10), 3)`
+`plot_sample_hist(samples, "height", c(1, 10), 3)`
 
 #### `stat_summary`
 
@@ -201,30 +201,30 @@ library(samplingsimulatorr)
 pop <- generate_virtual_pop(1000, "height", rnorm, 0, 1)
 head(pop)
 #> # A tibble: 6 x 1
-#>   height
-#>    <dbl>
-#> 1  2.09 
-#> 2  1.50 
-#> 3 -1.68 
-#> 4 -0.169
-#> 5 -0.874
-#> 6 -0.612
+#>    height
+#>     <dbl>
+#> 1  1.28  
+#> 2 -0.308 
+#> 3  0.0520
+#> 4 -1.74  
+#> 5  0.635 
+#> 6  0.144
 ```
 
 ``` r
 # create samples
-samples <- draw_samples(pop, 3, c(1, 10, 50, 100))
+samples <- draw_samples(pop, 100, c(1, 10, 50, 100))
 head(samples)
 #> # A tibble: 6 x 4
-#> # Groups:   replicate [3]
+#> # Groups:   replicate [6]
 #>   replicate height  size rep_size
 #>       <int>  <dbl> <dbl>    <dbl>
-#> 1         1 -1.92      1        3
-#> 2         2 -0.868     1        3
-#> 3         3 -0.682     1        3
-#> 4         1  0.459    10        3
-#> 5         1  1.93     10        3
-#> 6         1 -1.65     10        3
+#> 1         1 -1.54      1      100
+#> 2         2 -0.864     1      100
+#> 3         3 -0.357     1      100
+#> 4         4  1.36      1      100
+#> 5         5 -0.626     1      100
+#> 6         6  2.09      1      100
 ```
 
 ``` r
@@ -237,3 +237,17 @@ plot_sample_hist(pop, samples, height, c(10, 50, 100))
 ```
 
 <img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
+
+``` r
+plot_sampling_hist(samples, height, c(10, 50), 100)
+#> [[1]]
+#> `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+```
+
+<img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
+
+    #> 
+    #> [[2]]
+    #> `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+
+<img src="man/figures/README-unnamed-chunk-5-2.png" width="100%" />

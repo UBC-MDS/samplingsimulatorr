@@ -11,7 +11,7 @@ You can contribute in many ways:
 
 ### Report Bugs
 
-Report bugs at [here](https://github.com/UBC-MDS/samplingsimulatorr/issues).
+Report bugs [here](https://github.com/UBC-MDS/samplingsimulatorr/issues).
 
 If you are reporting a bug, please include:
 
@@ -37,7 +37,7 @@ articles, and such.
 
 ### Submit Feedback
 
-The best way to send feedback is to file an issue at [here](https://github.com/UBC-MDS/samplingsimulatorr/issues).
+The best way to send feedback is to file an issue [here](https://github.com/UBC-MDS/samplingsimulatorr/issues).
 
 If you are proposing a feature:
 

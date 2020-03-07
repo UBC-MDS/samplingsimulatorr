@@ -10,7 +10,7 @@ test_that("The population you passed in is not a valid data frame", {
   expect_error(stat_summary(dplyr::tibble(a = numeric()), dplyr::tibble(x = 1:10), c('mean', 'sd')))
 })
 
-test_that("The psamples you passed in is not a valid data frame", {
+test_that("The samples you passed in is not a valid data frame", {
   expect_error(stat_summary(dplyr::tibble(x = 1:3), c(1, 2), 'mean'))
   expect_error(stat_summary(dplyr::tibble(x = 1:10), dplyr::tibble(a = character()), c('mean', 'sd')))
   expect_error(stat_summary(dplyr::tibble(x = 1:10),  dplyr::tibble(a = numeric()), c('mean', 'sd')))

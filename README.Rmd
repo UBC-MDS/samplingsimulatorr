@@ -60,8 +60,8 @@ devtools::install_github("UBC-MDS/samplingsimulatorr")
     - **Inputs** : population to sample from, the samples to plot, and a vector of the sample sizes
     - **Outputs**: returns a grid of sample distribution plots
 - `plot_sampling_dist` creates sampling distributions for different sample sizes.
-    - **Inputs** : population to sample from, the samples to plot, and a vector of the sample sizes
-    - **Outputs**: returns a grid of sampling distribution plots
+    - **Inputs** : samples created by `draw_samples` function, variable of interest, a vector of the sample sizes, and the number of replication for each sample size
+    - **Outputs**: returns a list of sampling distribution plots
 - `stat_summary`: returns a summary of the statistical parameters of interest
     - **Inputs**: population, samples, parameter(s) of interest
     - **Outputs**: summary tibble
@@ -133,17 +133,16 @@ plot_sample_hist(pop, samples, var_name, n_s)
 
 **Example:**
 
-`plot_sample_hist(pop, samples, "height", c(1, 10))`
+`plot_sample_hist(pop, samples, height, c(1, 10))`
 
 #### `plot_sampling_hist`
 
 ``` r
 library(samplingsimulatorr)
-plot_sampling_hist(pop, samples, var_name, n_s)
+plot_sampling_hist(samples, var_name, n_s, reps)
 ```
 **Arguments:**
 
-- `pop` the virtual population as a tibble
 - `samples` the samples as a tibble
 - `var_name` the name of the column for the variable that is being generated
 - `n_s` a vector of the sample sizes (each sample size needs to be in the `samples` df input)
@@ -151,7 +150,7 @@ plot_sampling_hist(pop, samples, var_name, n_s)
 
 **Example:**
 
-`plot_sample_hist(pop, samples, "height", c(1, 10), 3)`
+`plot_sampling_hist(samples, height, c(10, 50), 100)`
 
 #### `stat_summary`
 
@@ -181,7 +180,7 @@ head(pop)
 
 ```{r}
 # create samples
-samples <- draw_samples(pop, 3, c(1, 10, 50, 100))
+samples <- draw_samples(pop, 100, c(1, 10, 50, 100))
 head(samples)
 ```
 ```{r}
@@ -189,8 +188,14 @@ head(samples)
 plot_sample_hist(pop, samples, height, c(10, 50, 100))
 ```
 
+```{r eval = FALSE}
+plot_sampling_hist(samples, height, c(10, 50), 100)
+```
 
-
-
+```{r echo = FALSE}
+x = plot_sampling_hist(samples, height, c(10, 50), 100)
+gridExtra::grid.arrange(grobs = x, ncol=2,
+                      top = "Sampling Distribution Histograms")
+```
 
 

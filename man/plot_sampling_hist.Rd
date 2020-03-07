@@ -16,10 +16,10 @@ plot_sampling_hist(samples, var_name, n_s, reps)
 \item{reps}{the number of replication for each sample size as an integer}
 }
 \value{
-a grid of the sampling distributions
+a list of the sampling distributions
 }
 \description{
-This function creates a grid sampling distribution histogram of the mean of different sample sizes drawn from a population
+This function creates a list of sampling distribution histogram of the mean of different sample sizes drawn from a population
 Author: Yue(Alex) Jiang
 }
 \examples{

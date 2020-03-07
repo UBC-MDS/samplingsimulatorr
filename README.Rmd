@@ -133,7 +133,7 @@ plot_sample_hist(pop, samples, var_name, n_s)
 
 **Example:**
 
-`plot_sample_hist(pop, samples, "height", c(1, 10))`
+`plot_sample_hist(pop, samples, height, c(1, 10))`
 
 #### `plot_sampling_hist`
 
@@ -150,7 +150,7 @@ plot_sampling_hist(samples, var_name, n_s, reps)
 
 **Example:**
 
-`plot_sample_hist(samples, "height", c(1, 10), 3)`
+`plot_sampling_hist(samples, height, c(10, 50), 100)`
 
 #### `stat_summary`
 

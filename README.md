@@ -151,7 +151,7 @@ plot_sample_hist(pop, samples, var_name, n_s)
 
 **Example:**
 
-`plot_sample_hist(pop, samples, "height", c(1, 10))`
+`plot_sample_hist(pop, samples, height, c(1, 10))`
 
 #### `plot_sampling_hist`
 
@@ -173,7 +173,7 @@ plot_sampling_hist(samples, var_name, n_s, reps)
 
 **Example:**
 
-`plot_sample_hist(samples, "height", c(1, 10), 3)`
+`plot_sampling_hist(samples, height, c(10, 50), 100)`
 
 #### `stat_summary`
 
@@ -201,14 +201,14 @@ library(samplingsimulatorr)
 pop <- generate_virtual_pop(1000, "height", rnorm, 0, 1)
 head(pop)
 #> # A tibble: 6 x 1
-#>    height
-#>     <dbl>
-#> 1  1.28  
-#> 2 -0.308 
-#> 3  0.0520
-#> 4 -1.74  
-#> 5  0.635 
-#> 6  0.144
+#>     height
+#>      <dbl>
+#> 1 -0.00523
+#> 2  0.267  
+#> 3 -1.92   
+#> 4  0.336  
+#> 5  0.743  
+#> 6 -1.16
 ```
 
 ``` r
@@ -217,14 +217,14 @@ samples <- draw_samples(pop, 100, c(1, 10, 50, 100))
 head(samples)
 #> # A tibble: 6 x 4
 #> # Groups:   replicate [6]
-#>   replicate height  size rep_size
-#>       <int>  <dbl> <dbl>    <dbl>
-#> 1         1 -1.54      1      100
-#> 2         2 -0.864     1      100
-#> 3         3 -0.357     1      100
-#> 4         4  1.36      1      100
-#> 5         5 -0.626     1      100
-#> 6         6  2.09      1      100
+#>   replicate  height  size rep_size
+#>       <int>   <dbl> <dbl>    <dbl>
+#> 1         1 -3.33       1      100
+#> 2         2 -1.23       1      100
+#> 3         3 -0.399      1      100
+#> 4         4  0.695      1      100
+#> 5         5  0.0104     1      100
+#> 6         6  0.262      1      100
 ```
 
 ``` r

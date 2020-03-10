@@ -7,6 +7,9 @@
 
 [![R build
 status](https://github.com/UBC-MDS/samplingsimulatorr/workflows/R-CMD-check/badge.svg)](https://github.com/UBC-MDS/samplingsimulatorr/actions)
+
+[![codecov](https://codecov.io/gh/UBC-MDS/samplingsimulatorr/branch/master/graph/badge.svg)](https://codecov.io/gh/UBC-MDS/samplingsimulatorr)
+
 <!-- badges: end -->
 
 `samplingsimulatorr` is an R package intended to assist those teaching
@@ -205,12 +208,12 @@ head(pop)
 #> # A tibble: 6 x 1
 #>   height
 #>    <dbl>
-#> 1 -1.21 
-#> 2 -1.15 
-#> 3  0.683
-#> 4  0.225
-#> 5 -1.63 
-#> 6 -1.00
+#> 1 -0.290
+#> 2  0.553
+#> 3  0.507
+#> 4  1.13 
+#> 5 -0.124
+#> 6 -0.536
 ```
 
 ``` r
@@ -219,14 +222,14 @@ samples <- draw_samples(pop, 100, c(1, 10, 50, 100))
 head(samples)
 #> # A tibble: 6 x 4
 #> # Groups:   replicate [6]
-#>   replicate    height  size rep_size
-#>       <int>     <dbl> <dbl>    <dbl>
-#> 1         1 -2.56         1      100
-#> 2         2 -1.88         1      100
-#> 3         3  0.613        1      100
-#> 4         4 -0.000498     1      100
-#> 5         5  0.470        1      100
-#> 6         6 -0.490        1      100
+#>   replicate height  size rep_size
+#>       <int>  <dbl> <dbl>    <dbl>
+#> 1         1 -0.325     1      100
+#> 2         2 -0.535     1      100
+#> 3         3 -1.43      1      100
+#> 4         4 -1.70      1      100
+#> 5         5  1.31      1      100
+#> 6         6 -1.61      1      100
 ```
 
 ``` r

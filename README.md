@@ -5,6 +5,8 @@
 
 <!-- badges: start -->
 
+[![R build
+status](https://github.com/UBC-MDS/samplingsimulatorr/workflows/R-CMD-check/badge.svg)](https://github.com/UBC-MDS/samplingsimulatorr/actions)
 <!-- badges: end -->
 
 `samplingsimulatorr` is an R package intended to assist those teaching
@@ -47,7 +49,7 @@ devtools::install_github("UBC-MDS/samplingsimulatorr")
 ## Function Descriptions
 
   - `generate_virtual_pop` creates a virtual population.
-      - **Inputs** : distribution function (i.e. `rnorm`, `rexp`, etc),
+      - **Inputs** : distribution function (i.e. `rnorm`, `rexp`, etc),
         the parameters required by the distribution function, and the
         size of the population.
       - **Outputs**: the virtual population as a tibble
@@ -201,14 +203,14 @@ library(samplingsimulatorr)
 pop <- generate_virtual_pop(1000, "height", rnorm, 0, 1)
 head(pop)
 #> # A tibble: 6 x 1
-#>    height
-#>     <dbl>
-#> 1  0.0583
-#> 2  1.62  
-#> 3  0.747 
-#> 4 -0.734 
-#> 5 -0.993 
-#> 6  0.497
+#>   height
+#>    <dbl>
+#> 1 -1.21 
+#> 2 -1.15 
+#> 3  0.683
+#> 4  0.225
+#> 5 -1.63 
+#> 6 -1.00
 ```
 
 ``` r
@@ -217,14 +219,14 @@ samples <- draw_samples(pop, 100, c(1, 10, 50, 100))
 head(samples)
 #> # A tibble: 6 x 4
 #> # Groups:   replicate [6]
-#>   replicate height  size rep_size
-#>       <int>  <dbl> <dbl>    <dbl>
-#> 1         1  0.862     1      100
-#> 2         2  1.71      1      100
-#> 3         3 -0.302     1      100
-#> 4         4  1.34      1      100
-#> 5         5  0.362     1      100
-#> 6         6 -1.71      1      100
+#>   replicate    height  size rep_size
+#>       <int>     <dbl> <dbl>    <dbl>
+#> 1         1 -2.56         1      100
+#> 2         2 -1.88         1      100
+#> 3         3  0.613        1      100
+#> 4         4 -0.000498     1      100
+#> 5         5  0.470        1      100
+#> 6         6 -0.490        1      100
 ```
 
 ``` r

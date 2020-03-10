@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
 # samplingsimulatorr
 
 <!-- badges: start -->
+[![R build status](https://github.com/UBC-MDS/samplingsimulatorr/workflows/R-CMD-check/badge.svg)](https://github.com/UBC-MDS/samplingsimulatorr/actions)
 <!-- badges: end -->
 
 `samplingsimulatorr` is an R package intended to assist those teaching or learning basic statistical inference.

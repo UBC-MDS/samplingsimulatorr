@@ -32,5 +32,7 @@ Imports:
     gridExtra,
     ggplot2
 Suggests: 
-    testthat (>= 2.1.0)
-
+    testthat (>= 2.1.0),
+    covr
+URL: https://github.com/UBC-MDS/samplingsimulatorr
+BugReports: https://github.com/UBC-MDS/samplingsimulatorr/issues

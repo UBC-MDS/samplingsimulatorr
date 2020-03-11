@@ -31,7 +31,9 @@ Imports:
     magrittr,
     gridExtra,
     ggplot2,
-    pillar
+    pillar,
+    vctrs,
+    lifecycle
 Suggests: 
     testthat (>= 2.1.0),
     covr

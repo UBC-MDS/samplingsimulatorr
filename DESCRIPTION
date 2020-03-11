@@ -25,13 +25,20 @@ LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.0.2
 Imports: 
-    dplyr,
     rlang,
+    vctrs,
+    lifecycle,
+    pillar,
+    dplyr,
     infer,
     magrittr,
-    rlang,
     gridExtra,
     ggplot2
 Suggests: 
-    testthat (>= 2.1.0)
-
+    testthat (>= 2.1.0),
+    covr,
+    knitr,
+    rmarkdown
+URL: https://github.com/UBC-MDS/samplingsimulatorr
+BugReports: https://github.com/UBC-MDS/samplingsimulatorr/issues
+VignetteBuilder: knitr

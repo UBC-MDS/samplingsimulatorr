@@ -10,7 +10,7 @@
 #'@return a tibble summary stats
 #'
 #'@examples
-#'stat_summary <- function(pop, samples, parameter)
+#'stat_summary(dplyr::tibble(x = 1:3), dplyr::tibble(x = 1:3), 'mean')
 #'
 #' @importFrom rlang :=
 #' @export

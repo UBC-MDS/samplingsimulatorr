@@ -30,7 +30,8 @@ Imports:
     infer,
     magrittr,
     gridExtra,
-    ggplot2
+    ggplot2,
+    pillar
 Suggests: 
     testthat (>= 2.1.0),
     covr

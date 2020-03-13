@@ -206,14 +206,14 @@ library(samplingsimulatorr)
 pop <- generate_virtual_pop(1000, "height", rnorm, 0, 1)
 head(pop)
 #> # A tibble: 6 x 1
-#>    height
-#>     <dbl>
-#> 1 -1.26  
-#> 2  1.94  
-#> 3  0.523 
-#> 4 -1.01  
-#> 5  0.519 
-#> 6  0.0609
+#>   height
+#>    <dbl>
+#> 1 -1.51 
+#> 2  0.794
+#> 3 -0.646
+#> 4  0.259
+#> 5 -0.456
+#> 6  0.728
 ```
 
 ``` r
@@ -222,14 +222,14 @@ samples <- draw_samples(pop, 100, c(1, 10, 50, 100))
 head(samples)
 #> # A tibble: 6 x 4
 #> # Groups:   replicate [6]
-#>   replicate  height  size rep_size
-#>       <int>   <dbl> <dbl>    <dbl>
-#> 1         1 -0.0437     1      100
-#> 2         2 -0.145      1      100
-#> 3         3  0.151      1      100
-#> 4         4  0.938      1      100
-#> 5         5 -0.148      1      100
-#> 6         6  0.0117     1      100
+#>   replicate height  size rep_size
+#>       <int>  <dbl> <dbl>    <dbl>
+#> 1         1 -1.73      1      100
+#> 2         2 -0.619     1      100
+#> 3         3  0.141     1      100
+#> 4         4  0.412     1      100
+#> 5         5 -0.523     1      100
+#> 6         6  0.405     1      100
 ```
 
 ``` r
@@ -245,20 +245,10 @@ plot_sample_hist(pop, samples, height, c(10, 50, 100))
 
 ``` r
 plot_sampling_hist(samples, height, c(10, 50, 100), 100)
-#> [[1]]
-#> `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ```
 
-<img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
-
-    #> 
-    #> [[2]]
+    #> `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+    #> `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
     #> `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 
-<img src="man/figures/README-unnamed-chunk-5-2.png" width="100%" />
-
-    #> 
-    #> [[3]]
-    #> `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-
-<img src="man/figures/README-unnamed-chunk-5-3.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />

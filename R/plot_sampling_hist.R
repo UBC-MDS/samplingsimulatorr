@@ -21,7 +21,7 @@ plot_sampling_hist <- function(samples, var_name, n_s, reps){
   # Note: inputs have already been checked in `create_sampling_hist`
   # which is not a user facing function
   sampling_hist <- create_sampling_hist(samples, {{var_name}}, n_s, reps)
-  return(gridExtra::grid.arrange(grobs = sampling_hist, ncol = max(1, round(length(sampling_hist) / 4)),
+  return(gridExtra::grid.arrange(grobs = sampling_hist, ncol = min(4, ceiling(length(sampling_hist) / 4)),
                           top = "Sampling Distribution Histograms"))
 
 }

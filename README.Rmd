@@ -193,14 +193,9 @@ head(samples)
 plot_sample_hist(pop, samples, height, c(10, 50, 100))
 ```
 
-```{r eval = FALSE}
-plot_sampling_hist(samples, height, c(10, 50), 100)
+```{r }
+plot_sampling_hist(samples, height, c(10, 50, 100), 100)
 ```
 
-```{r echo = FALSE}
-x = plot_sampling_hist(samples, height, c(10, 50), 100)
-gridExtra::grid.arrange(grobs = x, ncol=2,
-                      top = "Sampling Distribution Histograms")
-```
 
 

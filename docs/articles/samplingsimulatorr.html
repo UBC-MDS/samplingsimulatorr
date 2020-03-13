@@ -80,11 +80,107 @@
 
     
     
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(samplingsimulatorr)</span></code></pre></div>
+<p>When learning statistical inference, it is important to</p>
+<ul>
+<li>define important statistical sampling concepts like population distribution, sample distribution, and sampling distribution<br>
+</li>
+<li>explain the similarities and differences between the population distribution, sample distribution and sampling distribution.<br>
+</li>
+<li>understand how sample sizes may affect the distribution.</li>
+</ul>
+<p>The <code>samplingsimulatorr</code> package aims to make these steps easy by taking care of the coding part, and so you can focus more on the learning part. The <code>samplingsimulatorr</code> package provides the following functions that will:</p>
+<ul>
+<li>generate a virtual population;<br>
+</li>
+<li>draw samples of different sizes;<br>
+</li>
+<li>plot the histograms of the sample distribution for each sample size;<br>
+</li>
+<li>plot the histograms of the sampling distribution of the mean.</li>
+</ul>
+<p>This document introduces to you the basic tools of <code>samplingsimulatorr</code> package and shows you how to use those tools.</p>
+<div id="use-case-examples" class="section level2">
+<h2 class="hasAnchor">
+<a href="#use-case-examples" class="anchor"></a>Use Case Examples</h2>
+<div id="generate_virtual_pop" class="section level3">
+<h3 class="hasAnchor">
+<a href="#generate_virtual_pop" class="anchor"></a><code>generate_virtual_pop</code>
+</h3>
+<p>To start learning sample distribution and sampling distributio, we need first to generate a virtual population. The <code>generate_virtual_pop</code> helps you generate a group of virtual population with the distribution of your choice. You just need to fill the size of the population you want to generate, the variable name of that population, and the distribution the population comes from. The function would then produce a nice tibble of the virtual population you sepcified.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(samplingsimulatorr)</span>
+<span id="cb1-2"><a href="#cb1-2"></a></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="co"># generate population</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a>pop &lt;-<span class="st"> </span><span class="kw"><a href="../reference/generate_virtual_pop.html">generate_virtual_pop</a></span>(<span class="dv">1000</span>, <span class="st">"height"</span>, rnorm, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(pop)</span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="co">#&gt; # A tibble: 6 x 1</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="co">#&gt;   height</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="co">#&gt;    &lt;dbl&gt;</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="co">#&gt; 1 -2.08 </span></span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="co">#&gt; 2 -0.612</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="co">#&gt; 3 -0.438</span></span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="co">#&gt; 4  0.471</span></span>
+<span id="cb1-13"><a href="#cb1-13"></a><span class="co">#&gt; 5 -1.22 </span></span>
+<span id="cb1-14"><a href="#cb1-14"></a><span class="co">#&gt; 6 -0.112</span></span></code></pre></div>
+</div>
+<div id="draw_samples" class="section level3">
+<h3 class="hasAnchor">
+<a href="#draw_samples" class="anchor"></a><code>draw_samples</code>
+</h3>
+<p>After we have the virtual population, the next thing we need to do is to draw samples from that population. <code>draw_samples</code> function helps you draw samples of different sizes from that population. You can also repeatedly draw the samples of the same sizes multiple times to create a sampling distribution.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># the number of replication for each sample size </span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>reps &lt;-<span class="st"> </span><span class="dv">100</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="co"># the sample sizes for each one of the samples</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>n_s &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">10</span>, <span class="dv">50</span>, <span class="dv">100</span>)</span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="co"># create samples</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a>samples &lt;-<span class="st"> </span><span class="kw"><a href="../reference/draw_samples.html">draw_samples</a></span>(pop, reps, n_s)</span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(samples)</span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="co">#&gt; # A tibble: 6 x 4</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="co">#&gt; # Groups:   replicate [1]</span></span>
+<span id="cb2-10"><a href="#cb2-10"></a><span class="co">#&gt;   replicate  height  size rep_size</span></span>
+<span id="cb2-11"><a href="#cb2-11"></a><span class="co">#&gt;       &lt;int&gt;   &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;</span></span>
+<span id="cb2-12"><a href="#cb2-12"></a><span class="co">#&gt; 1         1  0.0676    10      100</span></span>
+<span id="cb2-13"><a href="#cb2-13"></a><span class="co">#&gt; 2         1 -0.320     10      100</span></span>
+<span id="cb2-14"><a href="#cb2-14"></a><span class="co">#&gt; 3         1  0.299     10      100</span></span>
+<span id="cb2-15"><a href="#cb2-15"></a><span class="co">#&gt; 4         1  0.352     10      100</span></span>
+<span id="cb2-16"><a href="#cb2-16"></a><span class="co">#&gt; 5         1  0.0229    10      100</span></span>
+<span id="cb2-17"><a href="#cb2-17"></a><span class="co">#&gt; 6         1 -1.33      10      100</span></span></code></pre></div>
+</div>
+<div id="plot_sample_hist" class="section level3">
+<h3 class="hasAnchor">
+<a href="#plot_sample_hist" class="anchor"></a><code>plot_sample_hist</code>
+</h3>
+<p>After having the samples, we can then plot the sample histograms for different sample sizes using <code>plot_sample_hist</code> function.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># plot sample histogram</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="kw"><a href="../reference/plot_sample_hist.html">plot_sample_hist</a></span>(pop, samples, height, n_s)</span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="co">#&gt; `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="co">#&gt; `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="co">#&gt; `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="co">#&gt; `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></span></code></pre></div>
+<p><img src="samplingsimulatorr_files/figure-html/unnamed-chunk-4-1.png" width="672"></p>
+</div>
+<div id="plot_sampling_hist" class="section level3">
+<h3 class="hasAnchor">
+<a href="#plot_sampling_hist" class="anchor"></a><code>plot_sampling_hist</code>
+</h3>
+<p>Since we have drawn the samples of the same size multiple times, we can then plot a nice sampling histogram. The <code>plot_sampling_hist</code> creates a grid of sampling distribution histogram of the mean of different sample sizes.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw"><a href="../reference/plot_sampling_hist.html">plot_sampling_hist</a></span>(samples, height, n_s, reps)</span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="co">#&gt; `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="co">#&gt; `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="co">#&gt; `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></span></code></pre></div>
+<p><img src="samplingsimulatorr_files/figure-html/unnamed-chunk-5-1.png" width="672"></p>
+</div>
+</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
 
+        <div id="tocnav">
+      <h2 class="hasAnchor">
+<a href="#tocnav" class="anchor"></a>Contents</h2>
+      <ul class="nav nav-pills nav-stacked">
+<li><a href="#use-case-examples">Use Case Examples</a></li>
+      </ul>
+</div>
       </div>
 
 </div>

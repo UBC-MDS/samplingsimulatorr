@@ -27,7 +27,7 @@ create_sampling_hist <- function(samples, var_name, n_s, reps){
     stop("Samples should be a data frame or a tibble")
 
   if (!is.element(col_name, colnames(samples))) {
-    stop(paste0("var_name (", col_name,") must be a column in 'samples' df"))
+    stop(" Variable must be a column in 'samples' df")
   }
 
   if (!is.numeric(reps) == TRUE)

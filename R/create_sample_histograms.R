@@ -23,19 +23,16 @@ create_sample_histograms <- function(pop, samples, var_name, n_s){
   col_name <- toString(rlang::get_expr(rlang::enquo(var_name)))
 
   # check pop df input
-  if (!is.data.frame(samples)) {
+  if (!"data.frame" %in% c(class(pop))) {
     stop("'pop' should be input as a dataframe")
-  }
-  if (!is.element(col_name, colnames(samples))) {
-    stop(paste0("var_name (", col_name,") must be a column in 'pop' df"))
   }
 
   # check samples df input
-  if (!is.data.frame(samples)) {
+  if (!"data.frame" %in% c(class(samples))) {
     stop("'samples' should be input as a dataframe")
   }
   if (!is.element(col_name, colnames(samples))) {
-    stop(paste0("var_name (", col_name,") must be a column in 'samples' df"))
+    stop("var_name must be a column in 'samples' df")
   }
 
   # check n_s (number of samples )

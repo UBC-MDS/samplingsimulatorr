@@ -1,6 +1,8 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
+<img src="img/logorfill.png" width="180" align="right"/>
+
 # samplingsimulatorr
 
 <!-- badges: start -->
@@ -208,12 +210,12 @@ head(pop)
 #> # A tibble: 6 x 1
 #>   height
 #>    <dbl>
-#> 1 -1.51 
-#> 2  0.794
-#> 3 -0.646
-#> 4  0.259
-#> 5 -0.456
-#> 6  0.728
+#> 1  1.27 
+#> 2  0.280
+#> 3  1.11 
+#> 4 -1.54 
+#> 5 -1.47 
+#> 6 -0.839
 ```
 
 ``` r
@@ -224,12 +226,12 @@ head(samples)
 #> # Groups:   replicate [6]
 #>   replicate height  size rep_size
 #>       <int>  <dbl> <dbl>    <dbl>
-#> 1         1 -1.73      1      100
-#> 2         2 -0.619     1      100
-#> 3         3  0.141     1      100
-#> 4         4  0.412     1      100
-#> 5         5 -0.523     1      100
-#> 6         6  0.405     1      100
+#> 1         1 -0.421     1      100
+#> 2         2  0.652     1      100
+#> 3         3 -0.297     1      100
+#> 4         4 -0.127     1      100
+#> 5         5 -1.09      1      100
+#> 6         6 -1.40      1      100
 ```
 
 ``` r

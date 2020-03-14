@@ -2,6 +2,7 @@
 pop <- generate_virtual_pop(N=100, var_name = height, rexp, 1)
 samples <- draw_samples(pop, 3, c(1, 5, 10))
 x <- create_sample_histograms(pop, samples, height, c(1, 5, 10))
+test_df <- c(1, 50)
 
 test_that("x axis is mapped to correct variable", {
   expect_true(rlang::get_expr(x[[1]]$layers[[1]]$mapping$x) == "height")

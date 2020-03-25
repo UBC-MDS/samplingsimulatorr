@@ -18,7 +18,6 @@ a tibble summary stats
 }
 \description{
 This function creates a summary stats for population, samples and parameter(s) of interest.
-Author: Tao Guo
 }
 \examples{
 stat_summary(dplyr::tibble(x = 1:3), dplyr::tibble(x = 1:3), 'mean')

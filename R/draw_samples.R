@@ -8,7 +8,9 @@
 #' @param n_s the sample size for each one of the samples as an array
 #'
 #' @return a tibble containing the sample numbers and sample values
-#' 
+#' tibble columns are replicate, string from pop, size and rep_size
+#' rep_size will contain repeated number of reps, used for plotting in other functions
+#'  
 #' @importFrom magrittr %>%
 #' @export
 #'

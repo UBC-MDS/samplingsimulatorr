@@ -4,7 +4,7 @@
 \alias{plot_sample_hist}
 \title{Create a sample histogram from a population}
 \usage{
-plot_sample_hist(pop, samples, var_name, n_s)
+plot_sample_hist(pop, samples, var_name, sample_size)
 }
 \arguments{
 \item{pop}{the virtual population as a tibble}
@@ -13,13 +13,15 @@ plot_sample_hist(pop, samples, var_name, n_s)
 
 \item{var_name}{the name of the column for the variable that is being generated}
 
-\item{n_s}{a vector of the sample sizes}
+\item{sample_size}{a vector of the sample sizes}
 }
 \value{
 a list of the sample histogram plots
 }
 \description{
 This function creates a grid of sample distributions from a population for different sample sizes.
+The plotted sample is the first replication from the samples (rep == 1). The other replicates
+are used for plotting the sampling distribution (applying the \code{plot_sampling_hist} function).
 Author: Holly Williams
 }
 \examples{

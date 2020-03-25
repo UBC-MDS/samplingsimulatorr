@@ -4,7 +4,7 @@
 \alias{create_sample_histograms}
 \title{Create a sample histogram from a population}
 \usage{
-create_sample_histograms(pop, samples, var_name, n_s)
+create_sample_histograms(pop, samples, var_name, sample_size)
 }
 \arguments{
 \item{pop}{the virtual population as a tibble}
@@ -13,7 +13,7 @@ create_sample_histograms(pop, samples, var_name, n_s)
 
 \item{var_name}{the name of the column for the variable that is being generated}
 
-\item{n_s}{a vector of the sample sizes}
+\item{sample_size}{a vector of the sample sizes}
 }
 \value{
 a list of the sample histogram plots

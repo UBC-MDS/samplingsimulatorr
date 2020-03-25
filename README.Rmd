@@ -76,12 +76,12 @@ Python pandas already includes some summary statistics functions such as .descri
 
 ## Dependencies
 
-- dplyr
-- rlang
-- infer
-- magrittr
-- gridExtra
-- ggplot2
+- dplyr >= 0.8.5
+- rlang >= 0.4.5
+- infer >= 0.5.1
+- magrittr >= 1.5.0
+- gridExtra >= 2.3.0
+- ggplot2 >= 3.3.0
 
 ## Usage
 
@@ -196,5 +196,4 @@ plot_sampling_hist(samples, height, c(10, 50, 100), 100)
 
 The official documentation is hosted on [pkgdown](https://ubc-mds.github.io/samplingsimulatorr/). 
 
-### Credits
 

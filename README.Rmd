@@ -12,8 +12,9 @@ knitr::opts_chunk$set(
   out.width = "100%"
 )
 ```
+<img src="img/logorfill.png" width="180" align="right"/>
 
-# samplingsimulatorr
+# samplingsimulatorr 
 
 <!-- badges: start -->
 [![R build status](https://github.com/UBC-MDS/samplingsimulatorr/workflows/R-CMD-check/badge.svg)](https://github.com/UBC-MDS/samplingsimulatorr/actions)
@@ -41,13 +42,7 @@ This package allows users to generate virtual populations which can be sampled f
 
 ## Installation
 
-You can install the released version of samplingsimulatorr from [CRAN](https://CRAN.R-project.org) with:
-
-``` r
-install.packages("samplingsimulatorr")
-```
-
-And the development version from [GitHub](https://github.com/) with:
+You can install the development version of samplingsimulatorr from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
@@ -165,9 +160,9 @@ stat_summary(pop, samples, paramater)
 ```
 **Arguments**
 
-- `population` The virtual population
-- `samples` The drawed samples
-- `parameter` The parameter(s) of interest
+- `population` the virtual population
+- `samples` the drawn samples
+- `parameter` the parameter(s) of interest
 
 **Example**
 
@@ -188,19 +183,13 @@ head(pop)
 samples <- draw_samples(pop, 100, c(1, 10, 50, 100))
 head(samples)
 ```
-```{r}
+```{r, fig.width=14,fig.height=4}
 # plot sample histogram
 plot_sample_hist(pop, samples, height, c(10, 50, 100))
 ```
 
-```{r eval = FALSE}
+```{r}
 plot_sampling_hist(samples, height, c(10, 50, 100), 100)
-```
-
-```{r echo = FALSE}
-x = plot_sampling_hist(samples, height, c(10, 50, 100), 100)
-gridExtra::grid.arrange(grobs = x, ncol=2,
-                      top = "Sampling Distribution Histograms")
 ```
 
 

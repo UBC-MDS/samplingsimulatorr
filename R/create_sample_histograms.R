@@ -49,6 +49,7 @@ create_sample_histograms <- function(pop, samples, var_name, n_s){
   samples_hist <- list()
 
   # for each sample size, generate tidy data needed for histogram plots
+  # using filter and replicate, then make the plots
   for (i in 1:length(n_s)){
     samples_hist[[i]] <- samples %>%
       dplyr::filter(replicate == 1, size == n_s[i]) %>%
@@ -67,7 +68,7 @@ create_sample_histograms <- function(pop, samples, var_name, n_s){
 
   }
 
-  # create list of sample histograms
+  # create true population histograms
   samples_hist[[length(n_s) + 1]] <-
     pop %>%
     ggplot2::ggplot() + ggplot2::geom_histogram(ggplot2::aes({{var_name}}, ..density..)) +

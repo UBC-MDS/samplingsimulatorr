@@ -13,6 +13,11 @@
     expect_error(draw_samples(pop, 1.5, c(2, 3)))
   })
   
+  test_that("Reps input is not a single value", {
+    pop <- generate_virtual_pop(10, "height", rnorm, 0, 1)
+    expect_error(draw_samples(pop, c(1,2), c(2, 3)))
+  })
+  
   test_that("Number of replications must be greater than 0", {
     pop <- generate_virtual_pop(10, "height", rnorm, 0, 1)
     expect_error(draw_samples(pop, 0, c(2, 3)))

@@ -1,7 +1,6 @@
 #' Create a virtual population
 #'
 #' This function creates a population from a distribution.
-#' Author: Tao Guo
 #'
 #'@param N The numbers of samples
 #'@param var_name the variable name that we need to create

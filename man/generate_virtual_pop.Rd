@@ -20,7 +20,6 @@ a tibble that stores the virtual population
 }
 \description{
 This function creates a population from a distribution.
-Author: Tao Guo
 }
 \examples{
 generate_virtual_pop(100, "height", rnorm, 0, 1)

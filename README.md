@@ -120,7 +120,7 @@ generate_virtual_pop(N, var_name, dist, ... )
 
 ``` r
 library(samplingsimulatorr)
-draw_samples(pop, reps, n_s)
+draw_samples(pop, reps, sample_size)
 ```
 
 **Arguments:**
@@ -128,7 +128,8 @@ draw_samples(pop, reps, n_s)
   - `pop` the virtual population as a tibble
   - `reps` the number of replication for each sample size as an integer
     value
-  - `n_s` the sample size for each one of the samples as an array
+  - `sample_size` the sample size for each one of the samples as an
+    array
 
 **Example:**
 
@@ -138,7 +139,7 @@ draw_samples(pop, reps, n_s)
 
 ``` r
 library(samplingsimulatorr)
-plot_sample_hist(pop, samples, var_name, n_s)
+plot_sample_hist(pop, samples, var_name, sample_size)
 ```
 
 **Arguments:**
@@ -147,8 +148,8 @@ plot_sample_hist(pop, samples, var_name, n_s)
   - `samples` the samples as a tibble
   - `var_name` the name of the column for the variable that is being
     generated
-  - `n_s` a vector of the sample sizes (each sample size needs to be in
-    the `samples` df input)
+  - `sample_size` a vector of the sample sizes (each sample size needs
+    to be in the `samples` df input)
 
 **Example:**
 
@@ -158,7 +159,7 @@ plot_sample_hist(pop, samples, var_name, n_s)
 
 ``` r
 library(samplingsimulatorr)
-plot_sampling_hist(samples, var_name, n_s, reps)
+plot_sampling_hist(samples, var_name, sample_size, reps)
 ```
 
 **Arguments:**
@@ -166,8 +167,8 @@ plot_sampling_hist(samples, var_name, n_s, reps)
   - `samples` the samples as a tibble
   - `var_name` the name of the column for the variable that is being
     generated
-  - `n_s` a vector of the sample sizes (each sample size needs to be in
-    the `samples` df input)
+  - `sample_size` a vector of the sample sizes (each sample size needs
+    to be in the `samples` df input)
   - `reps` the number of replication for each sample size as an integer
     (should be less than or equal to the number of replications in
     `samples`)
@@ -204,12 +205,12 @@ head(pop)
 #> # A tibble: 6 x 1
 #>   height
 #>    <dbl>
-#> 1 -0.512
-#> 2 -0.226
-#> 3  0.805
-#> 4  0.447
-#> 5 -0.206
-#> 6  2.10
+#> 1 -0.459
+#> 2  0.615
+#> 3  1.16 
+#> 4  0.919
+#> 5 -0.293
+#> 6 -1.56
 ```
 
 ``` r
@@ -220,12 +221,12 @@ head(samples)
 #> # Groups:   replicate [6]
 #>   replicate height  size rep_size
 #>       <int>  <dbl> <dbl>    <dbl>
-#> 1         1  0.205     1      100
-#> 2         2 -0.288     1      100
-#> 3         3  0.681     1      100
-#> 4         4 -1.18      1      100
-#> 5         5 -0.251     1      100
-#> 6         6  2.04      1      100
+#> 1         1 -0.825     1      100
+#> 2         2 -1.03      1      100
+#> 3         3  0.398     1      100
+#> 4         4 -0.209     1      100
+#> 5         5  0.279     1      100
+#> 6         6  1.73      1      100
 ```
 
 ``` r

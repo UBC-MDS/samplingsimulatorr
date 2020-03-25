@@ -192,5 +192,9 @@ plot_sample_hist(pop, samples, height, c(10, 50, 100))
 plot_sampling_hist(samples, height, c(10, 50, 100), 100)
 ```
 
+### Documentation
 
+The official documentation is hosted on [pkgdown](https://ubc-mds.github.io/samplingsimulatorr/). 
+
+### Credits
 

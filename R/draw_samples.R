@@ -5,7 +5,7 @@
 #'
 #' @param pop the virtual population as a tibble
 #' @param reps the number of replication for each sample size as an integer value
-#' @param n_s the sample size for each one of the samples as an array
+#' @param sample_size the sample size for each one of the samples as an array
 #'
 #' @return a tibble containing the sample numbers and sample values
 #' tibble columns are replicate, string from pop, size and rep_size
@@ -17,7 +17,7 @@
 #' @examples
 #' pop <- generate_virtual_pop(100, "Variable", rnorm, 0, 1)
 #' samples <- draw_samples(pop, 3, c(1, 10))
-draw_samples <- function(pop, reps, n_s){
+draw_samples <- function(pop, reps, sample_size){
     
     #Check population input is tibble with at least one value
     if(nrow(pop) <= 0 || typeof(pop) != 'list') {
@@ -35,7 +35,7 @@ draw_samples <- function(pop, reps, n_s){
     }
     
     #Check all values in sample size array are integers
-    for (i in n_s){
+    for (i in sample_size){
         if((i - round(i)) != 0){
             stop("At least one value in sample size array is not an integer value")
         }
@@ -45,11 +45,11 @@ draw_samples <- function(pop, reps, n_s){
     samples <- list()
   
     #Fill samples object per inputs
-    for (sample_size in 1:length(n_s)){
+    for (ss in 1:length(sample_size)){
         for (rep in 1:length(reps)){
-            samples[[sample_size * length(reps) + rep]] <- pop %>% 
-                infer::rep_sample_n(size = n_s[sample_size], reps = reps[rep], replace = TRUE) %>% 
-                dplyr::mutate(size = n_s[sample_size], rep_size = reps[rep])
+            samples[[ss * length(reps) + rep]] <- pop %>% 
+                infer::rep_sample_n(size = sample_size[ss], reps = reps[rep], replace = TRUE) %>% 
+                dplyr::mutate(size = sample_size[ss], rep_size = reps[rep])
         }
     }
   return(dplyr::bind_rows(samples))

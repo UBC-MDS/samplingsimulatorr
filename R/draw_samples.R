@@ -28,6 +28,11 @@ draw_samples <- function(pop, reps, sample_size){
     if((reps - round(reps)) != 0) {
         stop("Number of replications input must be an integer value")
     }
+  
+    #Check number of reps is not an array
+    if(length(reps) != 1) {
+        stop("Number of replications input must be a single value")
+    }
     
     #Check number of reps is positive
     if(reps <= 0 ){

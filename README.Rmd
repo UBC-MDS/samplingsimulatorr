@@ -194,6 +194,6 @@ plot_sampling_hist(samples, height, c(10, 50, 100), 100)
 
 ### Documentation
 
-The official documentation is hosted on [pkgdown](https://ubc-mds.github.io/samplingsimulatorr/). 
+The official documentation is hosted on [pkgdown](https://ubc-mds.github.io/samplingsimulatorr/). You can also refer to our [html vignette](https://ubc-mds.github.io/samplingsimulatorr/articles/samplingsimulatorr.html).
 
 

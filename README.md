@@ -89,12 +89,12 @@ comparison between the sample, sampling, and true population parameters.
 
 ## Dependencies
 
-  - dplyr
-  - rlang
-  - infer
-  - magrittr
-  - gridExtra
-  - ggplot2
+  - dplyr \>= 0.8.5
+  - rlang \>= 0.4.5
+  - infer \>= 0.5.1
+  - magrittr \>= 1.5.0
+  - gridExtra \>= 2.3.0
+  - ggplot2 \>= 3.3.0
 
 ## Usage
 
@@ -204,12 +204,12 @@ head(pop)
 #> # A tibble: 6 x 1
 #>   height
 #>    <dbl>
-#> 1  0.611
-#> 2 -0.842
-#> 3 -0.405
-#> 4 -0.743
-#> 5 -0.377
-#> 6 -0.984
+#> 1 -0.512
+#> 2 -0.226
+#> 3  0.805
+#> 4  0.447
+#> 5 -0.206
+#> 6  2.10
 ```
 
 ``` r
@@ -220,12 +220,12 @@ head(samples)
 #> # Groups:   replicate [6]
 #>   replicate height  size rep_size
 #>       <int>  <dbl> <dbl>    <dbl>
-#> 1         1  0.756     1      100
-#> 2         2 -0.607     1      100
-#> 3         3 -0.451     1      100
-#> 4         4  1.33      1      100
-#> 5         5 -0.842     1      100
-#> 6         6 -0.813     1      100
+#> 1         1  0.205     1      100
+#> 2         2 -0.288     1      100
+#> 3         3  0.681     1      100
+#> 4         4 -1.18      1      100
+#> 5         5 -0.251     1      100
+#> 6         6  2.04      1      100
 ```
 
 ``` r
@@ -247,3 +247,10 @@ plot_sampling_hist(samples, height, c(10, 50, 100), 100)
 ```
 
 <img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
+
+### Documentation
+
+The official documentation is hosted on
+[pkgdown](https://ubc-mds.github.io/samplingsimulatorr/). You can also
+refer to our [html
+vignette](https://ubc-mds.github.io/samplingsimulatorr/articles/samplingsimulatorr.html).

@@ -6,18 +6,18 @@
 #'
 #' @param samples the samples as a tibble
 #' @param var_name the name of the variable/parameter of interest that is being generated
-#' @param n_s a vector of the sample sizes
-#' @param reps the number of replication for each sample size as an integer
+#' @param sample_size a vector of the sample sizes
 #'
 #' @return a list of the sampling distributions
 #' @export
 #'
 #' @importFrom magrittr %>%
+#' @importFrom stats quantile
 #' @examples
 #' pop <- generate_virtual_pop(100, "Variable", rnorm, 0, 1)
 #' samples <- draw_samples(pop, 3, c(1, 10))
-#' create_sampling_hist(samples, Variable, c(1, 10), 3)
-create_sampling_hist <- function(samples, var_name, n_s, reps){
+#' create_sampling_hist(samples, Variable, c(1, 10))
+create_sampling_hist <- function(samples, var_name, sample_size){
 
   # convert var_name to string for testing
   col_name <- toString(rlang::get_expr(rlang::enquo(var_name)))
@@ -30,10 +30,19 @@ create_sampling_hist <- function(samples, var_name, n_s, reps){
     stop(" Variable must be a column in 'samples' df")
   }
 
-  if (!is.numeric(reps) == TRUE)
-    stop("Number of replications should be a numerical value, a vector with length 1")
+  if (!is.element("replicate", colnames(samples))) {
+    stop("The input samples dataframe should contain 'replicate', 'size', and 'rep_size' columns")
+  }
 
-  for (i in n_s){
+  if (!is.element("size", colnames(samples))) {
+    stop("The input samples dataframe should contain 'replicate', 'size', and 'rep_size' columns")
+  }
+
+  if (!is.element("rep_size", colnames(samples))) {
+    stop("The input samples dataframe should contain 'replicate', 'size', and 'rep_size' columns")
+  }
+
+  for (i in sample_size){
     if (class(i) != "numeric")
       stop("Samples' sizes should be a list or a vector with only numeric values")
     if (!is.element(i, unique(samples$size)))
@@ -65,13 +74,13 @@ create_sampling_hist <- function(samples, var_name, n_s, reps){
 
 
   sampling_dist<- list()
-  for (i in 1:length(n_s)){
+  for (i in 1:length(sample_size)){
     sampling_dist[[ i ]] <-
       summary %>%
-      dplyr::filter(size == n_s[i]) %>%
+      dplyr::filter(size == sample_size[i]) %>%
       ggplot2::ggplot() +
       ggplot2::geom_histogram(ggplot2::aes(mean, ..density..)) +
-      ggplot2::ggtitle(paste("sample size", n_s[i])) +
+      ggplot2::ggtitle(paste("sample size", sample_size[i])) +
       ggplot2::coord_cartesian(xlim = c(x_min, x_max)) +
       ggplot2::theme(plot.title = ggplot2::element_text(size = 10))
     if (i > 1){

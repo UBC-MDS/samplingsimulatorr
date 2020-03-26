@@ -11,16 +11,17 @@ stat_summary(population, samples, parameter)
 
 \item{samples}{The drawed samples}
 
-\item{parameter}{The parameter(s) of interest}
+\item{parameter}{A string vector or a single string of parameter(s) of interest}
 }
 \value{
 a tibble summary stats
 }
 \description{
 This function creates a summary stats for population, samples and parameter(s) of interest.
-Author: Tao Guo
 }
 \examples{
-stat_summary(dplyr::tibble(x = 1:3), dplyr::tibble(x = 1:3), 'mean')
+pop <- generate_virtual_pop(100000, "Height", rexp, 5)
+samples <- draw_samples(pop, 1, c(1))
+stat_summary(pop, samples, c('mean', 'sd'))
 
 }

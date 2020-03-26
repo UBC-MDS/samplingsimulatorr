@@ -11,7 +11,7 @@ generate_virtual_pop(N, var_name, dist, ...)
 
 \item{var_name}{the variable name that we need to create}
 
-\item{dist}{the function that we are using}
+\item{dist}{the distribution function for random variables (starts with 'r', i.e. rnorm, rpois, rexp)}
 
 \item{...}{for the dist function}
 }
@@ -20,7 +20,6 @@ a tibble that stores the virtual population
 }
 \description{
 This function creates a population from a distribution.
-Author: Tao Guo
 }
 \examples{
 generate_virtual_pop(100, "height", rnorm, 0, 1)

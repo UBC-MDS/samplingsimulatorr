@@ -4,14 +4,14 @@
 \alias{create_sampling_hist}
 \title{Create a sampling distribution histogram from samples}
 \usage{
-create_sampling_hist(samples, var_name, n_s)
+create_sampling_hist(samples, var_name, sample_size)
 }
 \arguments{
 \item{samples}{the samples as a tibble}
 
 \item{var_name}{the name of the variable/parameter of interest that is being generated}
 
-\item{n_s}{a vector of the sample sizes}
+\item{sample_size}{a vector of the sample sizes}
 }
 \value{
 a list of the sampling distributions

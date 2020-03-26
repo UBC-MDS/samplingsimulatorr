@@ -4,14 +4,14 @@
 \alias{plot_sampling_hist}
 \title{Create a grid of sampling distribution histogram from samples}
 \usage{
-plot_sampling_hist(samples, var_name, n_s)
+plot_sampling_hist(samples, var_name, sample_size)
 }
 \arguments{
 \item{samples}{the samples as a tibble}
 
 \item{var_name}{the name of the variable/parameter of interest that is being generated}
 
-\item{n_s}{a vector of the sample sizes}
+\item{sample_size}{a vector of the sample sizes}
 }
 \value{
 a grid of the sampling distributions

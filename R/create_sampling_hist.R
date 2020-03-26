@@ -13,6 +13,7 @@
 #' @export
 #'
 #' @importFrom magrittr %>%
+#' @importFrom stats quantile
 #' @examples
 #' pop <- generate_virtual_pop(100, "Variable", rnorm, 0, 1)
 #' samples <- draw_samples(pop, 3, c(1, 10))

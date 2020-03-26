@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">samplingsimulatorr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">2.0.0</span>
       </span>
     </div>
 
@@ -106,7 +106,7 @@
 <h3 class="hasAnchor">
 <a href="#generate_virtual_pop" class="anchor"></a><code>generate_virtual_pop</code>
 </h3>
-<p>To start learning sample distribution and sampling distributio, we need first to generate a virtual population. The <code>generate_virtual_pop</code> helps you generate a group of virtual population with the distribution of your choice. You just need to fill the size of the population you want to generate, the variable name of that population, and the distribution the population comes from. The function would then produce a nice tibble of the virtual population you sepcified.</p>
+<p>To start learning sample distribution and sampling distribution, we need first to generate a virtual population. The <code>generate_virtual_pop</code> helps you generate a group of virtual population with the distribution of your choice. You just need to fill the size of the population you want to generate, the variable name of that population, and the distribution the population comes from. The function would then produce a nice tibble of the virtual population you sepcified.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(samplingsimulatorr)</span>
 <span id="cb1-2"><a href="#cb1-2"></a></span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="co"># generate population</span></span>
@@ -115,12 +115,12 @@
 <span id="cb1-6"><a href="#cb1-6"></a><span class="co">#&gt; # A tibble: 6 x 1</span></span>
 <span id="cb1-7"><a href="#cb1-7"></a><span class="co">#&gt;   height</span></span>
 <span id="cb1-8"><a href="#cb1-8"></a><span class="co">#&gt;    &lt;dbl&gt;</span></span>
-<span id="cb1-9"><a href="#cb1-9"></a><span class="co">#&gt; 1 -2.24 </span></span>
-<span id="cb1-10"><a href="#cb1-10"></a><span class="co">#&gt; 2 -1.24 </span></span>
-<span id="cb1-11"><a href="#cb1-11"></a><span class="co">#&gt; 3 -0.830</span></span>
-<span id="cb1-12"><a href="#cb1-12"></a><span class="co">#&gt; 4 -1.35 </span></span>
-<span id="cb1-13"><a href="#cb1-13"></a><span class="co">#&gt; 5 -2.44 </span></span>
-<span id="cb1-14"><a href="#cb1-14"></a><span class="co">#&gt; 6 -0.439</span></span></code></pre></div>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="co">#&gt; 1  0.306</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="co">#&gt; 2  0.813</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="co">#&gt; 3 -3.10 </span></span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="co">#&gt; 4 -0.630</span></span>
+<span id="cb1-13"><a href="#cb1-13"></a><span class="co">#&gt; 5  1.24 </span></span>
+<span id="cb1-14"><a href="#cb1-14"></a><span class="co">#&gt; 6  0.618</span></span></code></pre></div>
 </div>
 <div id="draw_samples" class="section level3">
 <h3 class="hasAnchor">
@@ -130,20 +130,20 @@
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># the number of replication for each sample size </span></span>
 <span id="cb2-2"><a href="#cb2-2"></a>reps &lt;-<span class="st"> </span><span class="dv">100</span></span>
 <span id="cb2-3"><a href="#cb2-3"></a><span class="co"># the sample sizes for each one of the samples</span></span>
-<span id="cb2-4"><a href="#cb2-4"></a>n_s &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">10</span>, <span class="dv">50</span>, <span class="dv">100</span>)</span>
+<span id="cb2-4"><a href="#cb2-4"></a>sample_size &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">10</span>, <span class="dv">50</span>, <span class="dv">100</span>)</span>
 <span id="cb2-5"><a href="#cb2-5"></a><span class="co"># create samples</span></span>
-<span id="cb2-6"><a href="#cb2-6"></a>samples &lt;-<span class="st"> </span><span class="kw"><a href="../reference/draw_samples.html">draw_samples</a></span>(pop, reps, n_s)</span>
+<span id="cb2-6"><a href="#cb2-6"></a>samples &lt;-<span class="st"> </span><span class="kw"><a href="../reference/draw_samples.html">draw_samples</a></span>(pop, reps, sample_size)</span>
 <span id="cb2-7"><a href="#cb2-7"></a><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(samples)</span>
 <span id="cb2-8"><a href="#cb2-8"></a><span class="co">#&gt; # A tibble: 6 x 4</span></span>
 <span id="cb2-9"><a href="#cb2-9"></a><span class="co">#&gt; # Groups:   replicate [1]</span></span>
-<span id="cb2-10"><a href="#cb2-10"></a><span class="co">#&gt;   replicate height  size rep_size</span></span>
-<span id="cb2-11"><a href="#cb2-11"></a><span class="co">#&gt;       &lt;int&gt;  &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;</span></span>
-<span id="cb2-12"><a href="#cb2-12"></a><span class="co">#&gt; 1         1  0.315    10      100</span></span>
-<span id="cb2-13"><a href="#cb2-13"></a><span class="co">#&gt; 2         1 -0.549    10      100</span></span>
-<span id="cb2-14"><a href="#cb2-14"></a><span class="co">#&gt; 3         1  0.330    10      100</span></span>
-<span id="cb2-15"><a href="#cb2-15"></a><span class="co">#&gt; 4         1 -2.31     10      100</span></span>
-<span id="cb2-16"><a href="#cb2-16"></a><span class="co">#&gt; 5         1  0.695    10      100</span></span>
-<span id="cb2-17"><a href="#cb2-17"></a><span class="co">#&gt; 6         1 -0.631    10      100</span></span></code></pre></div>
+<span id="cb2-10"><a href="#cb2-10"></a><span class="co">#&gt;   replicate  height  size rep_size</span></span>
+<span id="cb2-11"><a href="#cb2-11"></a><span class="co">#&gt;       &lt;int&gt;   &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;</span></span>
+<span id="cb2-12"><a href="#cb2-12"></a><span class="co">#&gt; 1         1 -1.57      10      100</span></span>
+<span id="cb2-13"><a href="#cb2-13"></a><span class="co">#&gt; 2         1  0.587     10      100</span></span>
+<span id="cb2-14"><a href="#cb2-14"></a><span class="co">#&gt; 3         1 -0.217     10      100</span></span>
+<span id="cb2-15"><a href="#cb2-15"></a><span class="co">#&gt; 4         1  0.0926    10      100</span></span>
+<span id="cb2-16"><a href="#cb2-16"></a><span class="co">#&gt; 5         1  0.156     10      100</span></span>
+<span id="cb2-17"><a href="#cb2-17"></a><span class="co">#&gt; 6         1  0.515     10      100</span></span></code></pre></div>
 </div>
 <div id="plot_sample_hist" class="section level3">
 <h3 class="hasAnchor">
@@ -151,7 +151,7 @@
 </h3>
 <p>After having the samples, we can then plot the sample histograms for different sample sizes using <code>plot_sample_hist</code> function.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># plot sample histogram</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="kw"><a href="../reference/plot_sample_hist.html">plot_sample_hist</a></span>(pop, samples, height, n_s)</span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="kw"><a href="../reference/plot_sample_hist.html">plot_sample_hist</a></span>(pop, samples, height, sample_size)</span>
 <span id="cb3-3"><a href="#cb3-3"></a><span class="co">#&gt; `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></span>
 <span id="cb3-4"><a href="#cb3-4"></a><span class="co">#&gt; `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></span>
 <span id="cb3-5"><a href="#cb3-5"></a><span class="co">#&gt; `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></span>
@@ -163,11 +163,21 @@
 <a href="#plot_sampling_hist" class="anchor"></a><code>plot_sampling_hist</code>
 </h3>
 <p>Since we have drawn the samples of the same size multiple times, we can then plot a nice sampling histogram. The <code>plot_sampling_hist</code> creates a grid of sampling distribution histogram of the mean of different sample sizes.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw"><a href="../reference/plot_sampling_hist.html">plot_sampling_hist</a></span>(samples, height, n_s)</span>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw"><a href="../reference/plot_sampling_hist.html">plot_sampling_hist</a></span>(samples, height, sample_size)</span>
 <span id="cb4-2"><a href="#cb4-2"></a><span class="co">#&gt; `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></span>
 <span id="cb4-3"><a href="#cb4-3"></a><span class="co">#&gt; `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></span>
 <span id="cb4-4"><a href="#cb4-4"></a><span class="co">#&gt; `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></span></code></pre></div>
 <p><img src="samplingsimulatorr_files/figure-html/unnamed-chunk-5-1.png" width="672"></p>
+</div>
+<div id="stat_summary" class="section level3">
+<h3 class="hasAnchor">
+<a href="#stat_summary" class="anchor"></a><code>stat_summary</code>
+</h3>
+<p>Finally, we have both population and samples, the <code>stat_summary</code> creates a summary of the statistical for the arameters of interest.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw"><a href="../reference/stat_summary.html">stat_summary</a></span>(pop, samples, <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'mean'</span>, <span class="st">'sd'</span>))</span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="co">#&gt;         data         mean        sd</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="co">#&gt; 1 population -0.005111638 0.9827272</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="co">#&gt; 2    samples -0.021341198 0.9816514</span></span></code></pre></div>
 </div>
 </div>
   </div>

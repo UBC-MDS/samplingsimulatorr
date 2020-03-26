@@ -33,7 +33,7 @@ This document introduces to you the basic tools of `samplingsimulatorr` package 
 ## Use Case Examples
 
 ### `generate_virtual_pop`
-To start learning sample distribution and sampling distributio, we need first to generate a virtual population. The `generate_virtual_pop` helps you generate a group of virtual population with the distribution of your choice. You just need to fill the size of the population you want to generate, the variable name of that population, and the distribution the population comes from. The function would then produce a nice tibble of the virtual population you sepcified. 
+To start learning sample distribution and sampling distribution, we need first to generate a virtual population. The `generate_virtual_pop` helps you generate a group of virtual population with the distribution of your choice. You just need to fill the size of the population you want to generate, the variable name of that population, and the distribution the population comes from. The function would then produce a nice tibble of the virtual population you sepcified. 
 
 ```{r}
 library(samplingsimulatorr)
@@ -51,9 +51,9 @@ After we have the virtual population, the next thing we need to do is to draw sa
 # the number of replication for each sample size 
 reps <- 100
 # the sample sizes for each one of the samples
-n_s <- c(10, 50, 100)
+sample_size <- c(10, 50, 100)
 # create samples
-samples <- draw_samples(pop, reps, n_s)
+samples <- draw_samples(pop, reps, sample_size)
 head(samples)
 ```
 
@@ -62,12 +62,19 @@ After having the samples, we can then plot the sample histograms for different s
 
 ```{r fig.height=3.5, fig.width=7}
 # plot sample histogram
-plot_sample_hist(pop, samples, height, n_s)
+plot_sample_hist(pop, samples, height, sample_size)
 ```
 
 ### `plot_sampling_hist`
 Since we have drawn the samples of the same size multiple times, we can then plot a nice sampling histogram. The `plot_sampling_hist` creates a grid of sampling distribution histogram of the mean of different sample sizes. 
 
 ```{r fig.height=3.5, fig.width=7}
-plot_sampling_hist(samples, height, n_s)
+plot_sampling_hist(samples, height, sample_size)
+```
+
+### `stat_summary`
+Finally, we have both population and samples, the `stat_summary` creates a summary of the statistical for the arameters of interest.
+
+```{r}
+stat_summary(pop, samples, c('mean', 'sd'))
 ```

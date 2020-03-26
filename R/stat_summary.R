@@ -32,7 +32,7 @@ stat_summary <- function(population, samples, parameter) {
   }
 
   sub_pop <- population[[names(population)]]
-  sub_samples <- samples[[names(samples)]]
+  sub_samples <- samples[[names(samples)[2]]]
 
   pop <- dplyr::tibble('data' := c('population', 'samples'))
 

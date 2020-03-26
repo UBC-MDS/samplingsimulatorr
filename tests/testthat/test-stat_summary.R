@@ -1,7 +1,10 @@
 test_that("The tibble does not generate as expected", {
-  expect_equal(stat_summary(dplyr::tibble(x = 1:3), dplyr::tibble(x = 1:3), 'mean')[['mean']], c(2, 2))
-  expect_equal(nrow(stat_summary(dplyr::tibble(x = 1:10), dplyr::tibble(x = 1:10), c('mean', 'sd'))), 2)
-  expect_equal(names(stat_summary(dplyr::tibble(x = 1:10), dplyr::tibble(x = 1:10), c('mean', 'sd'))), c('data', 'mean', 'sd'))
+
+  pop <- generate_virtual_pop(100000, "Height", rexp, 5)
+  samples <- draw_samples(pop, 1, c(1))
+
+  expect_equal(nrow(stat_summary(pop, samples, c('mean', 'sd'))), 2)
+  expect_equal(names(stat_summary(pop, samples, c('mean', 'sd'))), c('data', 'mean', 'sd'))
 })
 
 test_that("The population you passed in is not a valid data frame", {
@@ -17,7 +20,10 @@ test_that("The samples you passed in is not a valid data frame", {
 })
 
 test_that("The function you passed in is not a valid function", {
-  expect_error(stat_summary(dplyr::tibble(x = 1:10), dplyr::tibble(x = 1:10), 'mean_not_here'))
-  expect_error(stat_summary(dplyr::tibble(x = 1:10), dplyr::tibble(x = 1:10), c('mean_not_here', 'sd_not_here')))
-  expect_error(stat_summary(dplyr::tibble(x = 1:10), dplyr::tibble(x = 1:10), c('mean', 'sd_not_here')))
+  pop <- generate_virtual_pop(100000, "Height", rexp, 5)
+  samples <- draw_samples(pop, 1, c(1))
+
+  expect_error(stat_summary(pop, samples, 'mean_not_here'))
+  expect_error(stat_summary(pop, samples, c('mean_not_here', 'sd_not_here')))
+  expect_error(stat_summary(pop, samples, c('mean', 'sd_not_here')))
 })

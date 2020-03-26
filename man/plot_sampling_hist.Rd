@@ -4,7 +4,7 @@
 \alias{plot_sampling_hist}
 \title{Create a grid of sampling distribution histogram from samples}
 \usage{
-plot_sampling_hist(samples, var_name, n_s, reps)
+plot_sampling_hist(samples, var_name, n_s)
 }
 \arguments{
 \item{samples}{the samples as a tibble}
@@ -12,8 +12,6 @@ plot_sampling_hist(samples, var_name, n_s, reps)
 \item{var_name}{the name of the variable/parameter of interest that is being generated}
 
 \item{n_s}{a vector of the sample sizes}
-
-\item{reps}{the number of replication for each sample size as an integer}
 }
 \value{
 a grid of the sampling distributions
@@ -25,5 +23,5 @@ Author: Yue(Alex) Jiang
 \examples{
 pop <- generate_virtual_pop(100, "Variable", rnorm, 0, 1)
 samples <- draw_samples(pop, 3, c(1, 10))
-plot_sampling_hist(samples, Variable, c(1, 10), 3)
+plot_sampling_hist(samples, Variable, c(1, 10))
 }

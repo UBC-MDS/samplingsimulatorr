@@ -8,6 +8,20 @@ samples <- draw_samples(pop, 100, n_s)
 x <- create_sampling_hist(samples, Variable, n_s, 3)
 samples_test <- c(10, 50)
 rep_test <- "rep"
+test_df1 <- data.frame("Variable" = c(1, 2, 3, 4, 5),
+                       "s" = c(10, 10, 10, 10, 10),
+                       "replicate" = c(1, 2, 3, 4, 5),
+                       "size" = c(100, 100, 100, 100, 100))
+
+test_df2 <- data.frame("Variable" = c(1, 2, 3, 4, 5),
+                       "sample_size" = c(10, 10, 10, 10, 10),
+                       "r" = c(1, 2, 3, 4, 5),
+                       "size" = c(100, 100, 100, 100, 100))
+
+test_df3 <- data.frame("Variable" = c(1, 2, 3, 4, 5),
+                       "sample_size" = c(10, 10, 10, 10, 10),
+                       "replicate" = c(1, 2, 3, 4, 5),
+                       "si" = c(100, 100, 100, 100, 100))
 
 test_that('should throw error', {
   expect_error(create_sampling_hist(samples_test, Variable, n_s, 3), 'Samples should be a data frame or a tibble')
@@ -15,6 +29,18 @@ test_that('should throw error', {
 
 test_that('should throw error', {
   expect_error(create_sampling_hist(samples, data, n_s, 3), "Variable must be a column in 'samples' df")
+})
+
+test_that('should throw error', {
+  expect_error(create_sampling_hist(test_df1, Variable, n_s, 3), "The input samples dataframe should have contain 'replicate', 'size', and 'rep_size' columns")
+})
+
+test_that('should throw error', {
+  expect_error(create_sampling_hist(test_df2, Variable, n_s, 3), "The input samples dataframe should have contain 'replicate', 'size', and 'rep_size' columns")
+})
+
+test_that('should throw error', {
+  expect_error(create_sampling_hist(test_df3, Variable, n_s, 3), "The input samples dataframe should have contain 'replicate', 'size', and 'rep_size' columns")
 })
 
 test_that('should throw error', {

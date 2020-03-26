@@ -32,15 +32,15 @@ create_sampling_hist <- function(samples, var_name, n_s, reps){
   }
 
   if (!is.element("replicate", colnames(samples))) {
-    stop(" he input samples dataframe should have contain 'replicate', 'size', and 'rep_size' columns")
+    stop("The input samples dataframe should have contain 'replicate', 'size', and 'rep_size' columns")
   }
 
   if (!is.element("size", colnames(samples))) {
-    stop(" he input samples dataframe should have contain 'replicate', 'size', and 'rep_size' columns")
+    stop("The input samples dataframe should have contain 'replicate', 'size', and 'rep_size' columns")
   }
 
   if (!is.element("rep_size", colnames(samples))) {
-    stop(" he input samples dataframe should have contain 'replicate', 'size', and 'rep_size' columns")
+    stop("The input samples dataframe should have contain 'replicate', 'size', and 'rep_size' columns")
   }
 
   if (!is.numeric(reps) == TRUE)

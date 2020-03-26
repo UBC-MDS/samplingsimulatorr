@@ -20,7 +20,6 @@ a list of the sample histogram plots
 }
 \description{
 This function creates a grid of sample distributions from a population for different sample sizes.
-Author: Holly Williams
 }
 \examples{
 pop <- generate_virtual_pop(100, height, rnorm, 0, 1)

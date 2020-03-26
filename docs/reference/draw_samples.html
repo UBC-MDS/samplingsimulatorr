@@ -36,8 +36,7 @@
 
 
 <meta property="og:title" content="Generates samples of different sizes — draw_samples" />
-<meta property="og:description" content="This function draws samples of various sizes from a population.
-Author: Lise Braaten" />
+<meta property="og:description" content="This function draws samples of various sizes from a population." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -115,11 +114,10 @@ Author: Lise Braaten" />
     </div>
 
     <div class="ref-description">
-    <p>This function draws samples of various sizes from a population.
-Author: Lise Braaten</p>
+    <p>This function draws samples of various sizes from a population.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>draw_samples</span>(<span class='no'>pop</span>, <span class='no'>reps</span>, <span class='no'>n_s</span>)</pre>
+    <pre class="usage"><span class='fu'>draw_samples</span>(<span class='no'>pop</span>, <span class='no'>reps</span>, <span class='no'>sample_size</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -133,14 +131,16 @@ Author: Lise Braaten</p>
       <td><p>the number of replication for each sample size as an integer value</p></td>
     </tr>
     <tr>
-      <th>n_s</th>
+      <th>sample_size</th>
       <td><p>the sample size for each one of the samples as an array</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a tibble containing the sample numbers and sample values</p>
+    <p>a tibble containing the sample numbers and sample values
+tibble columns are replicate, string from pop, size and rep_size
+rep_size will contain repeated number of reps, used for plotting in other functions</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>pop</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='generate_virtual_pop.html'>generate_virtual_pop</a></span>(<span class='fl'>100</span>, <span class='st'>"Variable"</span>, <span class='no'>rnorm</span>, <span class='fl'>0</span>, <span class='fl'>1</span>)

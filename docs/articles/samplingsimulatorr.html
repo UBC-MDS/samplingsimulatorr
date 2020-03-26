@@ -67,7 +67,7 @@
 
       
 
-      </header><script src="samplingsimulatorr_files/header-attrs-2.1.1/header-attrs.js"></script><div class="row">
+      </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1>samplingsimulatorr</h1>
@@ -115,12 +115,12 @@
 <span id="cb1-6"><a href="#cb1-6"></a><span class="co">#&gt; # A tibble: 6 x 1</span></span>
 <span id="cb1-7"><a href="#cb1-7"></a><span class="co">#&gt;   height</span></span>
 <span id="cb1-8"><a href="#cb1-8"></a><span class="co">#&gt;    &lt;dbl&gt;</span></span>
-<span id="cb1-9"><a href="#cb1-9"></a><span class="co">#&gt; 1 -2.08 </span></span>
-<span id="cb1-10"><a href="#cb1-10"></a><span class="co">#&gt; 2 -0.612</span></span>
-<span id="cb1-11"><a href="#cb1-11"></a><span class="co">#&gt; 3 -0.438</span></span>
-<span id="cb1-12"><a href="#cb1-12"></a><span class="co">#&gt; 4  0.471</span></span>
-<span id="cb1-13"><a href="#cb1-13"></a><span class="co">#&gt; 5 -1.22 </span></span>
-<span id="cb1-14"><a href="#cb1-14"></a><span class="co">#&gt; 6 -0.112</span></span></code></pre></div>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="co">#&gt; 1 -2.24 </span></span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="co">#&gt; 2 -1.24 </span></span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="co">#&gt; 3 -0.830</span></span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="co">#&gt; 4 -1.35 </span></span>
+<span id="cb1-13"><a href="#cb1-13"></a><span class="co">#&gt; 5 -2.44 </span></span>
+<span id="cb1-14"><a href="#cb1-14"></a><span class="co">#&gt; 6 -0.439</span></span></code></pre></div>
 </div>
 <div id="draw_samples" class="section level3">
 <h3 class="hasAnchor">
@@ -136,14 +136,14 @@
 <span id="cb2-7"><a href="#cb2-7"></a><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(samples)</span>
 <span id="cb2-8"><a href="#cb2-8"></a><span class="co">#&gt; # A tibble: 6 x 4</span></span>
 <span id="cb2-9"><a href="#cb2-9"></a><span class="co">#&gt; # Groups:   replicate [1]</span></span>
-<span id="cb2-10"><a href="#cb2-10"></a><span class="co">#&gt;   replicate  height  size rep_size</span></span>
-<span id="cb2-11"><a href="#cb2-11"></a><span class="co">#&gt;       &lt;int&gt;   &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;</span></span>
-<span id="cb2-12"><a href="#cb2-12"></a><span class="co">#&gt; 1         1  0.0676    10      100</span></span>
-<span id="cb2-13"><a href="#cb2-13"></a><span class="co">#&gt; 2         1 -0.320     10      100</span></span>
-<span id="cb2-14"><a href="#cb2-14"></a><span class="co">#&gt; 3         1  0.299     10      100</span></span>
-<span id="cb2-15"><a href="#cb2-15"></a><span class="co">#&gt; 4         1  0.352     10      100</span></span>
-<span id="cb2-16"><a href="#cb2-16"></a><span class="co">#&gt; 5         1  0.0229    10      100</span></span>
-<span id="cb2-17"><a href="#cb2-17"></a><span class="co">#&gt; 6         1 -1.33      10      100</span></span></code></pre></div>
+<span id="cb2-10"><a href="#cb2-10"></a><span class="co">#&gt;   replicate height  size rep_size</span></span>
+<span id="cb2-11"><a href="#cb2-11"></a><span class="co">#&gt;       &lt;int&gt;  &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;</span></span>
+<span id="cb2-12"><a href="#cb2-12"></a><span class="co">#&gt; 1         1  0.315    10      100</span></span>
+<span id="cb2-13"><a href="#cb2-13"></a><span class="co">#&gt; 2         1 -0.549    10      100</span></span>
+<span id="cb2-14"><a href="#cb2-14"></a><span class="co">#&gt; 3         1  0.330    10      100</span></span>
+<span id="cb2-15"><a href="#cb2-15"></a><span class="co">#&gt; 4         1 -2.31     10      100</span></span>
+<span id="cb2-16"><a href="#cb2-16"></a><span class="co">#&gt; 5         1  0.695    10      100</span></span>
+<span id="cb2-17"><a href="#cb2-17"></a><span class="co">#&gt; 6         1 -0.631    10      100</span></span></code></pre></div>
 </div>
 <div id="plot_sample_hist" class="section level3">
 <h3 class="hasAnchor">
@@ -163,7 +163,7 @@
 <a href="#plot_sampling_hist" class="anchor"></a><code>plot_sampling_hist</code>
 </h3>
 <p>Since we have drawn the samples of the same size multiple times, we can then plot a nice sampling histogram. The <code>plot_sampling_hist</code> creates a grid of sampling distribution histogram of the mean of different sample sizes.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw"><a href="../reference/plot_sampling_hist.html">plot_sampling_hist</a></span>(samples, height, n_s, reps)</span>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw"><a href="../reference/plot_sampling_hist.html">plot_sampling_hist</a></span>(samples, height, n_s)</span>
 <span id="cb4-2"><a href="#cb4-2"></a><span class="co">#&gt; `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></span>
 <span id="cb4-3"><a href="#cb4-3"></a><span class="co">#&gt; `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></span>
 <span id="cb4-4"><a href="#cb4-4"></a><span class="co">#&gt; `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></span></code></pre></div>

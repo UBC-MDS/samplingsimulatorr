@@ -1,7 +1,6 @@
 #' Create a sampling distribution histogram from samples
 #'
 #' This function creates a list of sampling distribution histogram of the mean of different sample sizes drawn from a population
-#' Author: Yue(Alex) Jiang
 #'
 #'
 #' @param samples the samples as a tibble

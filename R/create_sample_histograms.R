@@ -1,7 +1,6 @@
 #' Create a sample histogram from a population
 #'
 #' This function creates a grid of sample distributions from a population for different sample sizes.
-#' Author: Holly Williams
 #'
 #' @param pop the virtual population as a tibble
 #' @param samples the samples as a tibble

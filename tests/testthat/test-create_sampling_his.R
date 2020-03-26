@@ -39,7 +39,7 @@ test_that('should throw error', {
 })
 
 test_that('should throw error', {
-  expect_error(create_sampling_hist(test_df3, Variable, n_s), "The input samples dataframe should have contain 'replicate', 'size', and 'rep_size' columns")
+  expect_error(create_sampling_hist(test_df3, Variable, n_s), "The input samples dataframe should contain 'replicate', 'size', and 'rep_size' columns")
 })
 
 test_that('should throw error', {
@@ -77,4 +77,3 @@ test_that("plot titles are correct", {
     expect_true(x[[i]]$labels$title == paste("sample size", n_s[i]))
   }
 })
-

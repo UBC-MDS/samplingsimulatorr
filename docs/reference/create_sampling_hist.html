@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Create a virtual population — generate_virtual_pop • samplingsimulatorr</title>
+<title>Create a sampling distribution histogram from samples — create_sampling_hist • samplingsimulatorr</title>
 
 
 <!-- jquery -->
@@ -35,9 +35,9 @@
 
 
 
-<meta property="og:title" content="Create a virtual population — generate_virtual_pop" />
-<meta property="og:description" content="This function creates a population from a distribution.
-Author: Tao Guo" />
+<meta property="og:title" content="Create a sampling distribution histogram from samples — create_sampling_hist" />
+<meta property="og:description" content="This function creates a list of sampling distribution histogram of the mean of different sample sizes drawn from a population
+Author: Yue(Alex) Jiang" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -109,72 +109,48 @@ Author: Tao Guo" />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Create a virtual population</h1>
-    <small class="dont-index">Source: <a href='https://github.com/UBC-MDS/samplingsimulatorr/blob/master/R/generate_virtual_pop.R'><code>R/generate_virtual_pop.R</code></a></small>
-    <div class="hidden name"><code>generate_virtual_pop.Rd</code></div>
+    <h1>Create a sampling distribution histogram from samples</h1>
+    <small class="dont-index">Source: <a href='https://github.com/UBC-MDS/samplingsimulatorr/blob/master/R/create_sampling_hist.R'><code>R/create_sampling_hist.R</code></a></small>
+    <div class="hidden name"><code>create_sampling_hist.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This function creates a population from a distribution.
-Author: Tao Guo</p>
+    <p>This function creates a list of sampling distribution histogram of the mean of different sample sizes drawn from a population
+Author: Yue(Alex) Jiang</p>
     </div>
 
-    <pre class="usage"><span class='fu'>generate_virtual_pop</span>(<span class='no'>N</span>, <span class='no'>var_name</span>, <span class='no'>dist</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>create_sampling_hist</span>(<span class='no'>samples</span>, <span class='no'>var_name</span>, <span class='no'>n_s</span>, <span class='no'>reps</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>N</th>
-      <td><p>The numbers of samples</p></td>
+      <th>samples</th>
+      <td><p>the samples as a tibble</p></td>
     </tr>
     <tr>
       <th>var_name</th>
-      <td><p>the variable name that we need to create</p></td>
+      <td><p>the name of the variable/parameter of interest that is being generated</p></td>
     </tr>
     <tr>
-      <th>dist</th>
-      <td><p>the function that we are using</p></td>
+      <th>n_s</th>
+      <td><p>a vector of the sample sizes</p></td>
     </tr>
     <tr>
-      <th>...</th>
-      <td><p>for the dist function</p></td>
+      <th>reps</th>
+      <td><p>the number of replication for each sample size as an integer</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a tibble that stores the virtual population</p>
+    <p>a list of the sampling distributions</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>generate_virtual_pop</span>(<span class='fl'>100</span>, <span class='st'>"height"</span>, <span class='no'>rnorm</span>, <span class='fl'>0</span>, <span class='fl'>1</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 100 x 1</span><span>
-#&gt;     height
-#&gt;      </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'> 1</span><span> -</span><span style='color: #BB0000;'>0.666</span><span> 
-#&gt; </span><span style='color: #555555;'> 2</span><span> -</span><span style='color: #BB0000;'>1.13</span><span>  
-#&gt; </span><span style='color: #555555;'> 3</span><span> -</span><span style='color: #BB0000;'>0.369</span><span> 
-#&gt; </span><span style='color: #555555;'> 4</span><span> -</span><span style='color: #BB0000;'>1.18</span><span>  
-#&gt; </span><span style='color: #555555;'> 5</span><span>  0.059</span><span style='text-decoration: underline;'>3</span><span>
-#&gt; </span><span style='color: #555555;'> 6</span><span> -</span><span style='color: #BB0000;'>1.83</span><span>  
-#&gt; </span><span style='color: #555555;'> 7</span><span>  0.814 
-#&gt; </span><span style='color: #555555;'> 8</span><span> -</span><span style='color: #BB0000;'>1.48</span><span>  
-#&gt; </span><span style='color: #555555;'> 9</span><span> -</span><span style='color: #BB0000;'>1.42</span><span>  
-#&gt; </span><span style='color: #555555;'>10</span><span>  1.94  
-#&gt; </span><span style='color: #555555;'># … with 90 more rows</span><span></div><div class='input'><span class='fu'>generate_virtual_pop</span>(<span class='fl'>100</span>, <span class='st'>"n_accidents_per_hr"</span>, <span class='no'>rpois</span>, <span class='fl'>2</span>)</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 100 x 1</span><span>
-#&gt;    n_accidents_per_hr
-#&gt;                 </span><span style='color: #555555;font-style: italic;'>&lt;int&gt;</span><span>
-#&gt; </span><span style='color: #555555;'> 1</span><span>                  4
-#&gt; </span><span style='color: #555555;'> 2</span><span>                  1
-#&gt; </span><span style='color: #555555;'> 3</span><span>                  0
-#&gt; </span><span style='color: #555555;'> 4</span><span>                  5
-#&gt; </span><span style='color: #555555;'> 5</span><span>                  3
-#&gt; </span><span style='color: #555555;'> 6</span><span>                  1
-#&gt; </span><span style='color: #555555;'> 7</span><span>                  1
-#&gt; </span><span style='color: #555555;'> 8</span><span>                  1
-#&gt; </span><span style='color: #555555;'> 9</span><span>                  1
-#&gt; </span><span style='color: #555555;'>10</span><span>                  1
-#&gt; </span><span style='color: #555555;'># … with 90 more rows</span><span></div><div class='input'>
-</div></span></pre>
+    <pre class="examples"><div class='input'><span class='no'>pop</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='generate_virtual_pop.html'>generate_virtual_pop</a></span>(<span class='fl'>100</span>, <span class='st'>"Variable"</span>, <span class='no'>rnorm</span>, <span class='fl'>0</span>, <span class='fl'>1</span>)
+<span class='no'>samples</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='draw_samples.html'>draw_samples</a></span>(<span class='no'>pop</span>, <span class='fl'>3</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>10</span>))
+<span class='fu'>create_sampling_hist</span>(<span class='no'>samples</span>, <span class='no'>Variable</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>10</span>), <span class='fl'>3</span>)</div><div class='output co'>#&gt; [[1]]</div><div class='output co'>#&gt; <span class='message'>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></div><div class='img'><img src='create_sampling_hist-1.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
+#&gt; [[2]]</div><div class='output co'>#&gt; <span class='message'>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></div><div class='img'><img src='create_sampling_hist-2.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

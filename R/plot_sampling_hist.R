@@ -1,6 +1,6 @@
-#' Create a sampling distribution histogram from samples
+#' Create a grid of sampling distribution histogram from samples
 #'
-#' This function creates a list of sampling distribution histogram of the mean of different sample sizes drawn from a population
+#' This function creates a grid of sampling distribution histogram of the mean of different sample sizes drawn from a population
 #' Author: Yue(Alex) Jiang
 #'
 #'
@@ -9,79 +9,19 @@
 #' @param n_s a vector of the sample sizes
 #' @param reps the number of replication for each sample size as an integer
 #'
-#' @return a list of the sampling distributions
+#' @return a grid of the sampling distributions
 #' @export
 #'
-#' @importFrom magrittr %>%
 #' @examples
 #' pop <- generate_virtual_pop(100, "Variable", rnorm, 0, 1)
 #' samples <- draw_samples(pop, 3, c(1, 10))
 #' plot_sampling_hist(samples, Variable, c(1, 10), 3)
 plot_sampling_hist <- function(samples, var_name, n_s, reps){
 
-  # convert var_name to string for testing
-  col_name <- toString(rlang::get_expr(rlang::enquo(var_name)))
+  # Note: inputs have already been checked in `create_sampling_hist`
+  # which is not a user facing function
+  sampling_hist <- create_sampling_hist(samples, {{var_name}}, n_s, reps)
+  return(gridExtra::grid.arrange(grobs = sampling_hist, ncol = min(4, ceiling(length(sampling_hist) / 2)),
+                          top = "Sampling Distribution Histograms"))
 
-  # check the validity of inputs
-  if (!"data.frame" %in% c(class(samples)))
-    stop("Samples should be a data frame or a tibble")
-
-  if (!is.element(col_name, colnames(samples))) {
-    stop(paste0("var_name (", col_name,") must be a column in 'samples' df"))
-  }
-
-  if (!is.numeric(reps) == TRUE)
-    stop("Number of replications should be a numerical value, a vector with length 1")
-
-  for (i in n_s){
-    if (class(i) != "numeric")
-      stop("Samples' sizes should be a list or a vector with only numeric values")
-    if (!is.element(i, unique(samples$size)))
-      stop("Can only include sample sizes in 'size' column of 'samples' df")
-  }
-
-  samples <-
-    samples %>%
-    dplyr::ungroup()
-
-  x_min <-
-    samples %>%
-    dplyr::select({{var_name}}) %>%
-    unlist() %>%
-    quantile(0.05)
-
-  x_max <-
-    samples %>%
-    dplyr::ungroup() %>%
-    dplyr::select({{var_name}}) %>%
-    unlist() %>%
-    quantile(0.95)
-
-
-  summary <-
-    samples %>%
-    dplyr::group_by(replicate, size, rep_size) %>%
-    dplyr::summarise(mean = mean({{var_name}}))
-
-
-  sampling_dist<- list()
-  for (i in 1:length(n_s)){
-    sampling_dist[[ i ]] <-
-      summary %>%
-      dplyr::filter(size == n_s[i]) %>%
-      ggplot2::ggplot() +
-      ggplot2::geom_histogram(ggplot2::aes(mean, ..density..)) +
-      ggplot2::ggtitle(paste("sample size", n_s[i])) +
-      ggplot2::coord_cartesian(xlim = c(x_min, x_max)) +
-      ggplot2::theme(plot.title = ggplot2::element_text(size = 10))
-    if (i > 1){
-      sampling_dist[[i]] <- sampling_dist[[i]] +
-        ggplot2::theme(axis.title.y = ggplot2::element_blank(),
-                       axis.text.y = ggplot2::element_blank(),
-                       axis.ticks.y = ggplot2::element_blank())
-    }
-
-  }
-
-  return(sampling_dist)
 }

@@ -1,6 +1,8 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
+<img src="img/logorfill.png" width="180" align="right"/>
+
 # samplingsimulatorr
 
 <!-- badges: start -->
@@ -35,14 +37,8 @@ parameters of interest.
 
 ## Installation
 
-You can install the released version of samplingsimulatorr from
-[CRAN](https://CRAN.R-project.org) with:
-
-``` r
-install.packages("samplingsimulatorr")
-```
-
-And the development version from [GitHub](https://github.com/) with:
+You can install the development version of samplingsimulatorr from
+[GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
@@ -52,7 +48,7 @@ devtools::install_github("UBC-MDS/samplingsimulatorr")
 ## Function Descriptions
 
   - `generate_virtual_pop` creates a virtual population.
-      - **Inputs** : distribution function (i.e. `rnorm`, `rexp`, etc),
+      - **Inputs** : distribution function (i.e. `rnorm`, `rexp`, etc),
         the parameters required by the distribution function, and the
         size of the population.
       - **Outputs**: the virtual population as a tibble
@@ -189,9 +185,9 @@ stat_summary(pop, samples, paramater)
 
 **Arguments**
 
-  - `population` The virtual population
-  - `samples` The drawed samples
-  - `parameter` The parameter(s) of interest
+  - `population` the virtual population
+  - `samples` the drawn samples
+  - `parameter` the parameter(s) of interest
 
 **Example**
 
@@ -208,12 +204,12 @@ head(pop)
 #> # A tibble: 6 x 1
 #>   height
 #>    <dbl>
-#> 1 -0.290
-#> 2  0.553
-#> 3  0.507
-#> 4  1.13 
-#> 5 -0.124
-#> 6 -0.536
+#> 1  0.611
+#> 2 -0.842
+#> 3 -0.405
+#> 4 -0.743
+#> 5 -0.377
+#> 6 -0.984
 ```
 
 ``` r
@@ -224,12 +220,12 @@ head(samples)
 #> # Groups:   replicate [6]
 #>   replicate height  size rep_size
 #>       <int>  <dbl> <dbl>    <dbl>
-#> 1         1 -0.325     1      100
-#> 2         2 -0.535     1      100
-#> 3         3 -1.43      1      100
-#> 4         4 -1.70      1      100
-#> 5         5  1.31      1      100
-#> 6         6 -1.61      1      100
+#> 1         1  0.756     1      100
+#> 2         2 -0.607     1      100
+#> 3         3 -0.451     1      100
+#> 4         4  1.33      1      100
+#> 5         5 -0.842     1      100
+#> 6         6 -0.813     1      100
 ```
 
 ``` r
@@ -244,10 +240,10 @@ plot_sample_hist(pop, samples, height, c(10, 50, 100))
 <img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
 
 ``` r
-plot_sampling_hist(samples, height, c(10, 50), 100)
+plot_sampling_hist(samples, height, c(10, 50, 100), 100)
+#> `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+#> `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+#> `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ```
 
-    #> `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-    #> `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-
-<img src="man/figures/README-unnamed-chunk-6-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />

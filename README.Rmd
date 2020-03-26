@@ -76,12 +76,12 @@ Python pandas already includes some summary statistics functions such as .descri
 
 ## Dependencies
 
-- dplyr
-- rlang
-- infer
-- magrittr
-- gridExtra
-- ggplot2
+- dplyr >= 0.8.5
+- rlang >= 0.4.5
+- infer >= 0.5.1
+- magrittr >= 1.5.0
+- gridExtra >= 2.3.0
+- ggplot2 >= 3.3.0
 
 ## Usage
 
@@ -106,13 +106,13 @@ generate_virtual_pop(N, var_name, dist, ... )
 
 ``` r
 library(samplingsimulatorr)
-draw_samples(pop, reps, n_s)
+draw_samples(pop, reps, sample_size)
 ```
 **Arguments:**
 
 - `pop` the virtual population as a tibble
 - `reps` the number of replication for each sample size as an integer value
-- `n_s` the sample size for each one of the samples as an array
+- `sample_size` the sample size for each one of the samples as an array
 
 **Example:**
 
@@ -122,14 +122,14 @@ draw_samples(pop, reps, n_s)
 
 ``` r
 library(samplingsimulatorr)
-plot_sample_hist(pop, samples, var_name, n_s)
+plot_sample_hist(pop, samples, var_name, sample_size)
 ```
 **Arguments:**
 
 - `pop` the virtual population as a tibble
 - `samples` the samples as a tibble
 - `var_name` the name of the column for the variable that is being generated
-- `n_s` a vector of the sample sizes (each sample size needs to be in the `samples` df input)
+- `sample_size` a vector of the sample sizes (each sample size needs to be in the `samples` df input)
 
 **Example:**
 
@@ -139,14 +139,14 @@ plot_sample_hist(pop, samples, var_name, n_s)
 
 ``` r
 library(samplingsimulatorr)
-plot_sampling_hist(samples, var_name, n_s, reps)
+plot_sampling_hist(samples, var_name, sample_size)
 ```
 **Arguments:**
 
 - `samples` the samples as a tibble
 - `var_name` the name of the column for the variable that is being generated
-- `n_s` a vector of the sample sizes (each sample size needs to be in the `samples` df input)
-- `reps` the number of replication for each sample size as an integer (should be less than or equal to the number of replications in `samples`)
+- `sample_size` a vector of the sample sizes (each sample size needs to be in the `samples` df input)
+
 
 **Example:**
 
@@ -189,8 +189,11 @@ plot_sample_hist(pop, samples, height, c(10, 50, 100))
 ```
 
 ```{r}
-plot_sampling_hist(samples, height, c(10, 50, 100), 100)
+plot_sampling_hist(samples, height, c(10, 50, 100))
 ```
 
+### Documentation
+
+The official documentation is hosted on [pkgdown](https://ubc-mds.github.io/samplingsimulatorr/). You can also refer to our [html vignette](https://ubc-mds.github.io/samplingsimulatorr/articles/samplingsimulatorr.html).
 
 

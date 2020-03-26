@@ -4,12 +4,14 @@
 #'
 #'@param population The virtual population
 #'@param samples The drawed samples
-#'@param parameter The parameter(s) of interest
+#'@param parameter A string vector or a single string of parameter(s) of interest
 #'
 #'@return a tibble summary stats
 #'
 #'@examples
-#'stat_summary(dplyr::tibble(x = 1:3), dplyr::tibble(x = 1:3), 'mean')
+#'pop <- generate_virtual_pop(100000, "Height", rexp, 5)
+#'samples <- draw_samples(pop, 1, c(1))
+#'stat_summary(pop, samples, c('mean', 'sd'))
 #'
 #' @importFrom rlang :=
 #' @export

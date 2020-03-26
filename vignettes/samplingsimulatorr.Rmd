@@ -69,5 +69,5 @@ plot_sample_hist(pop, samples, height, n_s)
 Since we have drawn the samples of the same size multiple times, we can then plot a nice sampling histogram. The `plot_sampling_hist` creates a grid of sampling distribution histogram of the mean of different sample sizes. 
 
 ```{r fig.height=3.5, fig.width=7}
-plot_sampling_hist(samples, height, n_s, reps)
+plot_sampling_hist(samples, height, n_s)
 ```

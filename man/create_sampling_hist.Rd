@@ -4,16 +4,14 @@
 \alias{create_sampling_hist}
 \title{Create a sampling distribution histogram from samples}
 \usage{
-create_sampling_hist(samples, var_name, n_s, reps)
+create_sampling_hist(samples, var_name, sample_size)
 }
 \arguments{
 \item{samples}{the samples as a tibble}
 
 \item{var_name}{the name of the variable/parameter of interest that is being generated}
 
-\item{n_s}{a vector of the sample sizes}
-
-\item{reps}{the number of replication for each sample size as an integer}
+\item{sample_size}{a vector of the sample sizes}
 }
 \value{
 a list of the sampling distributions
@@ -25,5 +23,5 @@ Author: Yue(Alex) Jiang
 \examples{
 pop <- generate_virtual_pop(100, "Variable", rnorm, 0, 1)
 samples <- draw_samples(pop, 3, c(1, 10))
-create_sampling_hist(samples, Variable, c(1, 10), 3)
+create_sampling_hist(samples, Variable, c(1, 10))
 }

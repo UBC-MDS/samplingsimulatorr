@@ -4,7 +4,7 @@
 #'
 #'@param N The numbers of samples
 #'@param var_name the variable name that we need to create
-#'@param dist the distribution function for random variables (starts with 'r') that we are using
+#'@param dist the distribution function for random variables (starts with 'r', i.e. rnorm, rpois, rexp)
 #'@param ... for the dist function
 #'
 #'@return a tibble that stores the virtual population

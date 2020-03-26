@@ -6,7 +6,7 @@
 #' @param pop the virtual population as a tibble
 #' @param samples the samples as a tibble
 #' @param var_name the name of the column for the variable that is being generated
-#' @param n_s a vector of the sample sizes
+#' @param sample_size a vector of the sample sizes
 #'
 #' @return a list of the sample histogram plots
 #' @export
@@ -16,7 +16,7 @@
 #' pop <- generate_virtual_pop(100, height, rnorm, 0, 1)
 #' samples <- draw_samples(pop, 3, c(1, 10))
 #' create_sample_histograms(pop, samples, height, c(1, 10))
-create_sample_histograms <- function(pop, samples, var_name, n_s){
+create_sample_histograms <- function(pop, samples, var_name, sample_size){
 
   # START INPUT TESTS #
   # convert var_name to string for testing
@@ -35,10 +35,10 @@ create_sample_histograms <- function(pop, samples, var_name, n_s){
     stop("var_name must be a column in 'samples' df")
   }
 
-  # check n_s (number of samples )
-  if (!is.numeric(unlist(n_s)))
+  # check sample_size (number of samples )
+  if (!is.numeric(unlist(sample_size)))
     stop("sample sizes should be numeric")
-  for (i in n_s) {
+  for (i in sample_size) {
     if (i < 1)
       stop("Samples sizes must be >=1")
     if (!is.element(i, unique(samples$size)))
@@ -49,12 +49,13 @@ create_sample_histograms <- function(pop, samples, var_name, n_s){
   samples_hist <- list()
 
   # for each sample size, generate tidy data needed for histogram plots
-  for (i in 1:length(n_s)){
+  # using filter and replicate, then make the plots
+  for (i in 1:length(sample_size)){
     samples_hist[[i]] <- samples %>%
-      dplyr::filter(replicate == 1, size == n_s[i]) %>%
+      dplyr::filter(replicate == 1, size == sample_size[i]) %>%
       ggplot2::ggplot() +
       ggplot2::geom_histogram(ggplot2::aes({{var_name}}, ..density..)) +
-      ggplot2::ggtitle(paste("Sample Size=", n_s[i])) +
+      ggplot2::ggtitle(paste("Sample Size=", sample_size[i])) +
       ggplot2::theme_bw() +
       ggplot2::theme(plot.title = ggplot2::element_text(size = 10))
 
@@ -67,8 +68,8 @@ create_sample_histograms <- function(pop, samples, var_name, n_s){
 
   }
 
-  # create list of sample histograms
-  samples_hist[[length(n_s) + 1]] <-
+  # create true population histograms
+  samples_hist[[length(sample_size) + 1]] <-
     pop %>%
     ggplot2::ggplot() + ggplot2::geom_histogram(ggplot2::aes({{var_name}}, ..density..)) +
     ggplot2::ggtitle("True Population") +

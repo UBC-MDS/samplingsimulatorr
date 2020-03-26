@@ -89,12 +89,12 @@ comparison between the sample, sampling, and true population parameters.
 
 ## Dependencies
 
-  - dplyr
-  - rlang
-  - infer
-  - magrittr
-  - gridExtra
-  - ggplot2
+  - dplyr \>= 0.8.5
+  - rlang \>= 0.4.5
+  - infer \>= 0.5.1
+  - magrittr \>= 1.5.0
+  - gridExtra \>= 2.3.0
+  - ggplot2 \>= 3.3.0
 
 ## Usage
 
@@ -120,7 +120,7 @@ generate_virtual_pop(N, var_name, dist, ... )
 
 ``` r
 library(samplingsimulatorr)
-draw_samples(pop, reps, n_s)
+draw_samples(pop, reps, sample_size)
 ```
 
 **Arguments:**
@@ -128,7 +128,8 @@ draw_samples(pop, reps, n_s)
   - `pop` the virtual population as a tibble
   - `reps` the number of replication for each sample size as an integer
     value
-  - `n_s` the sample size for each one of the samples as an array
+  - `sample_size` the sample size for each one of the samples as an
+    array
 
 **Example:**
 
@@ -138,7 +139,7 @@ draw_samples(pop, reps, n_s)
 
 ``` r
 library(samplingsimulatorr)
-plot_sample_hist(pop, samples, var_name, n_s)
+plot_sample_hist(pop, samples, var_name, sample_size)
 ```
 
 **Arguments:**
@@ -147,8 +148,8 @@ plot_sample_hist(pop, samples, var_name, n_s)
   - `samples` the samples as a tibble
   - `var_name` the name of the column for the variable that is being
     generated
-  - `n_s` a vector of the sample sizes (each sample size needs to be in
-    the `samples` df input)
+  - `sample_size` a vector of the sample sizes (each sample size needs
+    to be in the `samples` df input)
 
 **Example:**
 
@@ -158,7 +159,7 @@ plot_sample_hist(pop, samples, var_name, n_s)
 
 ``` r
 library(samplingsimulatorr)
-plot_sampling_hist(samples, var_name, n_s, reps)
+plot_sampling_hist(samples, var_name, sample_size)
 ```
 
 **Arguments:**
@@ -166,11 +167,8 @@ plot_sampling_hist(samples, var_name, n_s, reps)
   - `samples` the samples as a tibble
   - `var_name` the name of the column for the variable that is being
     generated
-  - `n_s` a vector of the sample sizes (each sample size needs to be in
-    the `samples` df input)
-  - `reps` the number of replication for each sample size as an integer
-    (should be less than or equal to the number of replications in
-    `samples`)
+  - `sample_size` a vector of the sample sizes (each sample size needs
+    to be in the `samples` df input)
 
 **Example:**
 
@@ -204,12 +202,12 @@ head(pop)
 #> # A tibble: 6 x 1
 #>   height
 #>    <dbl>
-#> 1  0.611
-#> 2 -0.842
-#> 3 -0.405
-#> 4 -0.743
-#> 5 -0.377
-#> 6 -0.984
+#> 1  1.07 
+#> 2  0.707
+#> 3  0.853
+#> 4 -1.63 
+#> 5 -0.512
+#> 6 -0.833
 ```
 
 ``` r
@@ -218,14 +216,14 @@ samples <- draw_samples(pop, 100, c(1, 10, 50, 100))
 head(samples)
 #> # A tibble: 6 x 4
 #> # Groups:   replicate [6]
-#>   replicate height  size rep_size
-#>       <int>  <dbl> <dbl>    <dbl>
-#> 1         1  0.756     1      100
-#> 2         2 -0.607     1      100
-#> 3         3 -0.451     1      100
-#> 4         4  1.33      1      100
-#> 5         5 -0.842     1      100
-#> 6         6 -0.813     1      100
+#>   replicate    height  size rep_size
+#>       <int>     <dbl> <dbl>    <dbl>
+#> 1         1  0.804        1      100
+#> 2         2 -0.883        1      100
+#> 3         3 -1.69         1      100
+#> 4         4  0.000492     1      100
+#> 5         5  1.17         1      100
+#> 6         6 -0.738        1      100
 ```
 
 ``` r
@@ -240,10 +238,17 @@ plot_sample_hist(pop, samples, height, c(10, 50, 100))
 <img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
 
 ``` r
-plot_sampling_hist(samples, height, c(10, 50, 100), 100)
+plot_sampling_hist(samples, height, c(10, 50, 100))
 #> `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 #> `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 #> `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ```
 
 <img src="man/figures/README-unnamed-chunk-5-1.png" width="100%" />
+
+### Documentation
+
+The official documentation is hosted on
+[pkgdown](https://ubc-mds.github.io/samplingsimulatorr/). You can also
+refer to our [html
+vignette](https://ubc-mds.github.io/samplingsimulatorr/articles/samplingsimulatorr.html).

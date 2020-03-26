@@ -31,7 +31,7 @@ test_that('should throw error', {
 })
 
 test_that('should throw error', {
-  expect_error(create_sampling_hist(test_df1, Variable, n_s), "The input samples dataframe should have contain 'replicate', 'size', and 'rep_size' columns")
+  expect_error(create_sampling_hist(test_df1, Variable, n_s), "The input samples dataframe should contain 'replicate', 'size', and 'rep_size' columns")
 })
 
 test_that('should throw error', {

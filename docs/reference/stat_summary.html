@@ -36,8 +36,7 @@
 
 
 <meta property="og:title" content="Create a stats summary — stat_summary" />
-<meta property="og:description" content="This function creates a summary stats for population, samples and parameter(s) of interest.
-Author: Tao Guo" />
+<meta property="og:description" content="This function creates a summary stats for population, samples and parameter(s) of interest." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -115,8 +114,7 @@ Author: Tao Guo" />
     </div>
 
     <div class="ref-description">
-    <p>This function creates a summary stats for population, samples and parameter(s) of interest.
-Author: Tao Guo</p>
+    <p>This function creates a summary stats for population, samples and parameter(s) of interest.</p>
     </div>
 
     <pre class="usage"><span class='fu'>stat_summary</span>(<span class='no'>population</span>, <span class='no'>samples</span>, <span class='no'>parameter</span>)</pre>
@@ -134,7 +132,7 @@ Author: Tao Guo</p>
     </tr>
     <tr>
       <th>parameter</th>
-      <td><p>The parameter(s) of interest</p></td>
+      <td><p>A string vector or a single string of parameter(s) of interest</p></td>
     </tr>
     </table>
 
@@ -143,9 +141,11 @@ Author: Tao Guo</p>
     <p>a tibble summary stats</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>stat_summary</span>(<span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>tibble</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>3</span>), <span class='kw pkg'>dplyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/reexports.html'>tibble</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>3</span>), <span class='st'>'mean'</span>)</div><div class='output co'>#&gt;         data mean
-#&gt; 1 population    2
-#&gt; 2    samples    2</div><div class='input'>
+    <pre class="examples"><div class='input'><span class='no'>pop</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='generate_virtual_pop.html'>generate_virtual_pop</a></span>(<span class='fl'>100000</span>, <span class='st'>"Height"</span>, <span class='no'>rexp</span>, <span class='fl'>5</span>)
+<span class='no'>samples</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='draw_samples.html'>draw_samples</a></span>(<span class='no'>pop</span>, <span class='fl'>1</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>))
+<span class='fu'>stat_summary</span>(<span class='no'>pop</span>, <span class='no'>samples</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>'mean'</span>, <span class='st'>'sd'</span>))</div><div class='output co'>#&gt;         data      mean        sd
+#&gt; 1 population 0.1996243 0.2000499
+#&gt; 2    samples 0.2466659        NA</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

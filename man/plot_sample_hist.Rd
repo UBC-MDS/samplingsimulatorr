@@ -22,7 +22,6 @@ a list of the sample histogram plots
 This function creates a grid of sample distributions from a population for different sample sizes.
 The plotted sample is the first replication from the samples (rep == 1). The other replicates
 are used for plotting the sampling distribution (applying the \code{plot_sampling_hist} function).
-Author: Holly Williams
 }
 \examples{
 pop <- generate_virtual_pop(100, height, rnorm, 0, 1)

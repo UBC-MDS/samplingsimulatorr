@@ -36,8 +36,7 @@
 
 
 <meta property="og:title" content="Create a sampling distribution histogram from samples — create_sampling_hist" />
-<meta property="og:description" content="This function creates a list of sampling distribution histogram of the mean of different sample sizes drawn from a population
-Author: Yue(Alex) Jiang" />
+<meta property="og:description" content="This function creates a list of sampling distribution histogram of the mean of different sample sizes drawn from a population" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -115,11 +114,10 @@ Author: Yue(Alex) Jiang" />
     </div>
 
     <div class="ref-description">
-    <p>This function creates a list of sampling distribution histogram of the mean of different sample sizes drawn from a population
-Author: Yue(Alex) Jiang</p>
+    <p>This function creates a list of sampling distribution histogram of the mean of different sample sizes drawn from a population</p>
     </div>
 
-    <pre class="usage"><span class='fu'>create_sampling_hist</span>(<span class='no'>samples</span>, <span class='no'>var_name</span>, <span class='no'>n_s</span>, <span class='no'>reps</span>)</pre>
+    <pre class="usage"><span class='fu'>create_sampling_hist</span>(<span class='no'>samples</span>, <span class='no'>var_name</span>, <span class='no'>sample_size</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -133,12 +131,8 @@ Author: Yue(Alex) Jiang</p>
       <td><p>the name of the variable/parameter of interest that is being generated</p></td>
     </tr>
     <tr>
-      <th>n_s</th>
+      <th>sample_size</th>
       <td><p>a vector of the sample sizes</p></td>
-    </tr>
-    <tr>
-      <th>reps</th>
-      <td><p>the number of replication for each sample size as an integer</p></td>
     </tr>
     </table>
 
@@ -149,7 +143,7 @@ Author: Yue(Alex) Jiang</p>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='no'>pop</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='generate_virtual_pop.html'>generate_virtual_pop</a></span>(<span class='fl'>100</span>, <span class='st'>"Variable"</span>, <span class='no'>rnorm</span>, <span class='fl'>0</span>, <span class='fl'>1</span>)
 <span class='no'>samples</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='draw_samples.html'>draw_samples</a></span>(<span class='no'>pop</span>, <span class='fl'>3</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>10</span>))
-<span class='fu'>create_sampling_hist</span>(<span class='no'>samples</span>, <span class='no'>Variable</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>10</span>), <span class='fl'>3</span>)</div><div class='output co'>#&gt; [[1]]</div><div class='output co'>#&gt; <span class='message'>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></div><div class='img'><img src='create_sampling_hist-1.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
+<span class='fu'>create_sampling_hist</span>(<span class='no'>samples</span>, <span class='no'>Variable</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>, <span class='fl'>10</span>))</div><div class='output co'>#&gt; [[1]]</div><div class='output co'>#&gt; <span class='message'>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></div><div class='img'><img src='create_sampling_hist-1.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
 #&gt; [[2]]</div><div class='output co'>#&gt; <span class='message'>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></div><div class='img'><img src='create_sampling_hist-2.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

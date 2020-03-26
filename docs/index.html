@@ -69,6 +69,8 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
+
+<p><img src="img/logorfill.png" width="180" align="right"></p>
 <div id="samplingsimulatorr" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#samplingsimulatorr" class="anchor"></a>samplingsimulatorr</h1></div>
@@ -113,11 +115,9 @@
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<p>You can install the released version of samplingsimulatorr from <a href="https://CRAN.R-project.org">CRAN</a> with:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"samplingsimulatorr"</span>)</span></code></pre></div>
-<p>And the development version from <a href="https://github.com/">GitHub</a> with:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># install.packages("devtools")</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a>devtools<span class="op">::</span><span class="kw"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"UBC-MDS/samplingsimulatorr"</span>)</span></code></pre></div>
+<p>You can install the development version of samplingsimulatorr from <a href="https://github.com/">GitHub</a> with:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># install.packages("devtools")</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>devtools<span class="op">::</span><span class="kw"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"UBC-MDS/samplingsimulatorr"</span>)</span></code></pre></div>
 </div>
 <div id="function-descriptions" class="section level2">
 <h2 class="hasAnchor">
@@ -179,12 +179,12 @@
 <h2 class="hasAnchor">
 <a href="#dependencies" class="anchor"></a>Dependencies</h2>
 <ul>
-<li>dplyr</li>
-<li>rlang</li>
-<li>infer</li>
-<li>magrittr</li>
-<li>gridExtra</li>
-<li>ggplot2</li>
+<li>dplyr &gt;= 0.8.5</li>
+<li>rlang &gt;= 0.4.5</li>
+<li>infer &gt;= 0.5.1</li>
+<li>magrittr &gt;= 1.5.0</li>
+<li>gridExtra &gt;= 2.3.0</li>
+<li>ggplot2 &gt;= 3.3.0</li>
 </ul>
 </div>
 <div id="usage" class="section level2">
@@ -194,8 +194,8 @@
 <h4 class="hasAnchor">
 <a href="#generate_virtual_pop" class="anchor"></a><code>generate_virtual_pop</code>
 </h4>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(samplingsimulatorr)</span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="kw"><a href="reference/generate_virtual_pop.html">generate_virtual_pop</a></span>(N, var_name, dist, ... )</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(samplingsimulatorr)</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="kw"><a href="reference/generate_virtual_pop.html">generate_virtual_pop</a></span>(N, var_name, dist, ... )</span></code></pre></div>
 <p><strong>Arguments:</strong></p>
 <ul>
 <li>
@@ -214,8 +214,8 @@
 <h4 class="hasAnchor">
 <a href="#draw_samples" class="anchor"></a><code>draw_samples</code>
 </h4>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(samplingsimulatorr)</span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="kw"><a href="reference/draw_samples.html">draw_samples</a></span>(pop, reps, n_s)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(samplingsimulatorr)</span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="kw"><a href="reference/draw_samples.html">draw_samples</a></span>(pop, reps, sample_size)</span></code></pre></div>
 <p><strong>Arguments:</strong></p>
 <ul>
 <li>
@@ -223,7 +223,7 @@
 <li>
 <code>reps</code> the number of replication for each sample size as an integer value</li>
 <li>
-<code>n_s</code> the sample size for each one of the samples as an array</li>
+<code>sample_size</code> the sample size for each one of the samples as an array</li>
 </ul>
 <p><strong>Example:</strong></p>
 <p><code>samples &lt;- draw_samples(pop, 3, c(1, 10))</code></p>
@@ -232,8 +232,8 @@
 <h4 class="hasAnchor">
 <a href="#plot_sample_hist" class="anchor"></a><code>plot_sample_hist</code>
 </h4>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(samplingsimulatorr)</span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="kw"><a href="reference/plot_sample_hist.html">plot_sample_hist</a></span>(pop, samples, var_name, n_s)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(samplingsimulatorr)</span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="kw"><a href="reference/plot_sample_hist.html">plot_sample_hist</a></span>(pop, samples, var_name, sample_size)</span></code></pre></div>
 <p><strong>Arguments:</strong></p>
 <ul>
 <li>
@@ -243,7 +243,7 @@
 <li>
 <code>var_name</code> the name of the column for the variable that is being generated</li>
 <li>
-<code>n_s</code> a vector of the sample sizes (each sample size needs to be in the <code>samples</code> df input)</li>
+<code>sample_size</code> a vector of the sample sizes (each sample size needs to be in the <code>samples</code> df input)</li>
 </ul>
 <p><strong>Example:</strong></p>
 <p><code><a href="reference/plot_sample_hist.html">plot_sample_hist(pop, samples, height, c(1, 10))</a></code></p>
@@ -252,8 +252,8 @@
 <h4 class="hasAnchor">
 <a href="#plot_sampling_hist" class="anchor"></a><code>plot_sampling_hist</code>
 </h4>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(samplingsimulatorr)</span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="kw"><a href="reference/plot_sampling_hist.html">plot_sampling_hist</a></span>(samples, var_name, n_s, reps)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(samplingsimulatorr)</span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="kw"><a href="reference/plot_sampling_hist.html">plot_sampling_hist</a></span>(samples, var_name, sample_size)</span></code></pre></div>
 <p><strong>Arguments:</strong></p>
 <ul>
 <li>
@@ -261,9 +261,7 @@
 <li>
 <code>var_name</code> the name of the column for the variable that is being generated</li>
 <li>
-<code>n_s</code> a vector of the sample sizes (each sample size needs to be in the <code>samples</code> df input)</li>
-<li>
-<code>reps</code> the number of replication for each sample size as an integer (should be less than or equal to the number of replications in <code>samples</code>)</li>
+<code>sample_size</code> a vector of the sample sizes (each sample size needs to be in the <code>samples</code> df input)</li>
 </ul>
 <p><strong>Example:</strong></p>
 <p><code><a href="reference/plot_sampling_hist.html">plot_sampling_hist(samples, height, c(10, 50), 100)</a></code></p>
@@ -272,16 +270,16 @@
 <h4 class="hasAnchor">
 <a href="#stat_summary" class="anchor"></a><code>stat_summary</code>
 </h4>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(samplingsimulatorr)</span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="kw"><a href="reference/stat_summary.html">stat_summary</a></span>(pop, samples, paramater)</span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(samplingsimulatorr)</span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="kw"><a href="reference/stat_summary.html">stat_summary</a></span>(pop, samples, paramater)</span></code></pre></div>
 <p><strong>Arguments</strong></p>
 <ul>
 <li>
-<code>population</code> The virtual population</li>
+<code>population</code> the virtual population</li>
 <li>
-<code>samples</code> The drawed samples</li>
+<code>samples</code> the drawn samples</li>
 <li>
-<code>parameter</code> The parameter(s) of interest</li>
+<code>parameter</code> the parameter(s) of interest</li>
 </ul>
 <p><strong>Example</strong></p>
 <p><code><a href="reference/stat_summary.html">stat_summary(pop, samples, c(mean, median))</a></code></p>
@@ -289,47 +287,54 @@
 <div id="example-usage-scenario" class="section level3">
 <h3 class="hasAnchor">
 <a href="#example-usage-scenario" class="anchor"></a>Example Usage Scenario</h3>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(samplingsimulatorr)</span>
-<span id="cb8-2"><a href="#cb8-2"></a></span>
-<span id="cb8-3"><a href="#cb8-3"></a><span class="co"># generate population</span></span>
-<span id="cb8-4"><a href="#cb8-4"></a>pop &lt;-<span class="st"> </span><span class="kw"><a href="reference/generate_virtual_pop.html">generate_virtual_pop</a></span>(<span class="dv">1000</span>, <span class="st">"height"</span>, rnorm, <span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb8-5"><a href="#cb8-5"></a><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(pop)</span>
-<span id="cb8-6"><a href="#cb8-6"></a><span class="co">#&gt; # A tibble: 6 x 1</span></span>
-<span id="cb8-7"><a href="#cb8-7"></a><span class="co">#&gt;   height</span></span>
-<span id="cb8-8"><a href="#cb8-8"></a><span class="co">#&gt;    &lt;dbl&gt;</span></span>
-<span id="cb8-9"><a href="#cb8-9"></a><span class="co">#&gt; 1 -0.290</span></span>
-<span id="cb8-10"><a href="#cb8-10"></a><span class="co">#&gt; 2  0.553</span></span>
-<span id="cb8-11"><a href="#cb8-11"></a><span class="co">#&gt; 3  0.507</span></span>
-<span id="cb8-12"><a href="#cb8-12"></a><span class="co">#&gt; 4  1.13 </span></span>
-<span id="cb8-13"><a href="#cb8-13"></a><span class="co">#&gt; 5 -0.124</span></span>
-<span id="cb8-14"><a href="#cb8-14"></a><span class="co">#&gt; 6 -0.536</span></span></code></pre></div>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># create samples</span></span>
-<span id="cb9-2"><a href="#cb9-2"></a>samples &lt;-<span class="st"> </span><span class="kw"><a href="reference/draw_samples.html">draw_samples</a></span>(pop, <span class="dv">100</span>, <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">50</span>, <span class="dv">100</span>))</span>
-<span id="cb9-3"><a href="#cb9-3"></a><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(samples)</span>
-<span id="cb9-4"><a href="#cb9-4"></a><span class="co">#&gt; # A tibble: 6 x 4</span></span>
-<span id="cb9-5"><a href="#cb9-5"></a><span class="co">#&gt; # Groups:   replicate [6]</span></span>
-<span id="cb9-6"><a href="#cb9-6"></a><span class="co">#&gt;   replicate height  size rep_size</span></span>
-<span id="cb9-7"><a href="#cb9-7"></a><span class="co">#&gt;       &lt;int&gt;  &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;</span></span>
-<span id="cb9-8"><a href="#cb9-8"></a><span class="co">#&gt; 1         1 -0.325     1      100</span></span>
-<span id="cb9-9"><a href="#cb9-9"></a><span class="co">#&gt; 2         2 -0.535     1      100</span></span>
-<span id="cb9-10"><a href="#cb9-10"></a><span class="co">#&gt; 3         3 -1.43      1      100</span></span>
-<span id="cb9-11"><a href="#cb9-11"></a><span class="co">#&gt; 4         4 -1.70      1      100</span></span>
-<span id="cb9-12"><a href="#cb9-12"></a><span class="co">#&gt; 5         5  1.31      1      100</span></span>
-<span id="cb9-13"><a href="#cb9-13"></a><span class="co">#&gt; 6         6 -1.61      1      100</span></span></code></pre></div>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># plot sample histogram</span></span>
-<span id="cb10-2"><a href="#cb10-2"></a><span class="kw"><a href="reference/plot_sample_hist.html">plot_sample_hist</a></span>(pop, samples, height, <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">10</span>, <span class="dv">50</span>, <span class="dv">100</span>))</span>
-<span id="cb10-3"><a href="#cb10-3"></a><span class="co">#&gt; `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></span>
-<span id="cb10-4"><a href="#cb10-4"></a><span class="co">#&gt; `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></span>
-<span id="cb10-5"><a href="#cb10-5"></a><span class="co">#&gt; `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></span>
-<span id="cb10-6"><a href="#cb10-6"></a><span class="co">#&gt; `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(samplingsimulatorr)</span>
+<span id="cb7-2"><a href="#cb7-2"></a></span>
+<span id="cb7-3"><a href="#cb7-3"></a><span class="co"># generate population</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a>pop &lt;-<span class="st"> </span><span class="kw"><a href="reference/generate_virtual_pop.html">generate_virtual_pop</a></span>(<span class="dv">1000</span>, <span class="st">"height"</span>, rnorm, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb7-5"><a href="#cb7-5"></a><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(pop)</span>
+<span id="cb7-6"><a href="#cb7-6"></a><span class="co">#&gt; # A tibble: 6 x 1</span></span>
+<span id="cb7-7"><a href="#cb7-7"></a><span class="co">#&gt;   height</span></span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="co">#&gt;    &lt;dbl&gt;</span></span>
+<span id="cb7-9"><a href="#cb7-9"></a><span class="co">#&gt; 1  1.07 </span></span>
+<span id="cb7-10"><a href="#cb7-10"></a><span class="co">#&gt; 2  0.707</span></span>
+<span id="cb7-11"><a href="#cb7-11"></a><span class="co">#&gt; 3  0.853</span></span>
+<span id="cb7-12"><a href="#cb7-12"></a><span class="co">#&gt; 4 -1.63 </span></span>
+<span id="cb7-13"><a href="#cb7-13"></a><span class="co">#&gt; 5 -0.512</span></span>
+<span id="cb7-14"><a href="#cb7-14"></a><span class="co">#&gt; 6 -0.833</span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># create samples</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a>samples &lt;-<span class="st"> </span><span class="kw"><a href="reference/draw_samples.html">draw_samples</a></span>(pop, <span class="dv">100</span>, <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">50</span>, <span class="dv">100</span>))</span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(samples)</span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="co">#&gt; # A tibble: 6 x 4</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a><span class="co">#&gt; # Groups:   replicate [6]</span></span>
+<span id="cb8-6"><a href="#cb8-6"></a><span class="co">#&gt;   replicate    height  size rep_size</span></span>
+<span id="cb8-7"><a href="#cb8-7"></a><span class="co">#&gt;       &lt;int&gt;     &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;</span></span>
+<span id="cb8-8"><a href="#cb8-8"></a><span class="co">#&gt; 1         1  0.804        1      100</span></span>
+<span id="cb8-9"><a href="#cb8-9"></a><span class="co">#&gt; 2         2 -0.883        1      100</span></span>
+<span id="cb8-10"><a href="#cb8-10"></a><span class="co">#&gt; 3         3 -1.69         1      100</span></span>
+<span id="cb8-11"><a href="#cb8-11"></a><span class="co">#&gt; 4         4  0.000492     1      100</span></span>
+<span id="cb8-12"><a href="#cb8-12"></a><span class="co">#&gt; 5         5  1.17         1      100</span></span>
+<span id="cb8-13"><a href="#cb8-13"></a><span class="co">#&gt; 6         6 -0.738        1      100</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># plot sample histogram</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="kw"><a href="reference/plot_sample_hist.html">plot_sample_hist</a></span>(pop, samples, height, <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">10</span>, <span class="dv">50</span>, <span class="dv">100</span>))</span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="co">#&gt; `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="co">#&gt; `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a><span class="co">#&gt; `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></span>
+<span id="cb9-6"><a href="#cb9-6"></a><span class="co">#&gt; `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-4-1.png" width="100%"></p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="kw"><a href="reference/plot_sampling_hist.html">plot_sampling_hist</a></span>(samples, height, <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">10</span>, <span class="dv">50</span>), <span class="dv">100</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb12"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co">#&gt; `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></span>
-<span id="cb12-2"><a href="#cb12-2"></a><span class="co">#&gt; `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></span></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-6-1.png" width="100%"></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="kw"><a href="reference/plot_sampling_hist.html">plot_sampling_hist</a></span>(samples, height, <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">10</span>, <span class="dv">50</span>, <span class="dv">100</span>))</span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="co">#&gt; `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="co">#&gt; `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="co">#&gt; `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</span></span></code></pre></div>
+<p><img src="reference/figures/README-unnamed-chunk-5-1.png" width="100%"></p>
+</div>
+<div id="documentation" class="section level3">
+<h3 class="hasAnchor">
+<a href="#documentation" class="anchor"></a>Documentation</h3>
+<p>The official documentation is hosted on <a href="https://ubc-mds.github.io/samplingsimulatorr/">pkgdown</a>. You can also refer to our <a href="https://ubc-mds.github.io/samplingsimulatorr/articles/samplingsimulatorr.html">html vignette</a>.</p>
 </div>
 </div>
 </div>
+
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

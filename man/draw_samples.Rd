@@ -20,7 +20,6 @@ rep_size will contain repeated number of reps, used for plotting in other functi
 }
 \description{
 This function draws samples of various sizes from a population.
-Author: Lise Braaten
 }
 \examples{
 pop <- generate_virtual_pop(100, "Variable", rnorm, 0, 1)

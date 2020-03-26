@@ -37,7 +37,8 @@
 
 <meta property="og:title" content="Create a sample histogram from a population — plot_sample_hist" />
 <meta property="og:description" content="This function creates a grid of sample distributions from a population for different sample sizes.
-Author: Holly Williams" />
+The plotted sample is the first replication from the samples (rep == 1). The other replicates
+are used for plotting the sampling distribution (applying the plot_sampling_hist function)." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -116,10 +117,11 @@ Author: Holly Williams" />
 
     <div class="ref-description">
     <p>This function creates a grid of sample distributions from a population for different sample sizes.
-Author: Holly Williams</p>
+The plotted sample is the first replication from the samples (rep == 1). The other replicates
+are used for plotting the sampling distribution (applying the <code>plot_sampling_hist</code> function).</p>
     </div>
 
-    <pre class="usage"><span class='fu'>plot_sample_hist</span>(<span class='no'>pop</span>, <span class='no'>samples</span>, <span class='no'>var_name</span>, <span class='no'>n_s</span>)</pre>
+    <pre class="usage"><span class='fu'>plot_sample_hist</span>(<span class='no'>pop</span>, <span class='no'>samples</span>, <span class='no'>var_name</span>, <span class='no'>sample_size</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -137,7 +139,7 @@ Author: Holly Williams</p>
       <td><p>the name of the column for the variable that is being generated</p></td>
     </tr>
     <tr>
-      <th>n_s</th>
+      <th>sample_size</th>
       <td><p>a vector of the sample sizes</p></td>
     </tr>
     </table>

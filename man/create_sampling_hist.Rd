@@ -18,7 +18,6 @@ a list of the sampling distributions
 }
 \description{
 This function creates a list of sampling distribution histogram of the mean of different sample sizes drawn from a population
-Author: Yue(Alex) Jiang
 }
 \examples{
 pop <- generate_virtual_pop(100, "Variable", rnorm, 0, 1)

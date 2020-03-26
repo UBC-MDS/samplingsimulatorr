@@ -159,7 +159,7 @@ plot_sample_hist(pop, samples, var_name, sample_size)
 
 ``` r
 library(samplingsimulatorr)
-plot_sampling_hist(samples, var_name, sample_size, reps)
+plot_sampling_hist(samples, var_name, sample_size)
 ```
 
 **Arguments:**
@@ -169,9 +169,6 @@ plot_sampling_hist(samples, var_name, sample_size, reps)
     generated
   - `sample_size` a vector of the sample sizes (each sample size needs
     to be in the `samples` df input)
-  - `reps` the number of replication for each sample size as an integer
-    (should be less than or equal to the number of replications in
-    `samples`)
 
 **Example:**
 
@@ -205,12 +202,12 @@ head(pop)
 #> # A tibble: 6 x 1
 #>   height
 #>    <dbl>
-#> 1 -0.459
-#> 2  0.615
-#> 3  1.16 
-#> 4  0.919
-#> 5 -0.293
-#> 6 -1.56
+#> 1  1.07 
+#> 2  0.707
+#> 3  0.853
+#> 4 -1.63 
+#> 5 -0.512
+#> 6 -0.833
 ```
 
 ``` r
@@ -219,14 +216,14 @@ samples <- draw_samples(pop, 100, c(1, 10, 50, 100))
 head(samples)
 #> # A tibble: 6 x 4
 #> # Groups:   replicate [6]
-#>   replicate height  size rep_size
-#>       <int>  <dbl> <dbl>    <dbl>
-#> 1         1 -0.825     1      100
-#> 2         2 -1.03      1      100
-#> 3         3  0.398     1      100
-#> 4         4 -0.209     1      100
-#> 5         5  0.279     1      100
-#> 6         6  1.73      1      100
+#>   replicate    height  size rep_size
+#>       <int>     <dbl> <dbl>    <dbl>
+#> 1         1  0.804        1      100
+#> 2         2 -0.883        1      100
+#> 3         3 -1.69         1      100
+#> 4         4  0.000492     1      100
+#> 5         5  1.17         1      100
+#> 6         6 -0.738        1      100
 ```
 
 ``` r
@@ -241,7 +238,7 @@ plot_sample_hist(pop, samples, height, c(10, 50, 100))
 <img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
 
 ``` r
-plot_sampling_hist(samples, height, c(10, 50, 100), 100)
+plot_sampling_hist(samples, height, c(10, 50, 100))
 #> `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 #> `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 #> `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.

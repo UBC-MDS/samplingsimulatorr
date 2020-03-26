@@ -139,14 +139,14 @@ plot_sample_hist(pop, samples, var_name, sample_size)
 
 ``` r
 library(samplingsimulatorr)
-plot_sampling_hist(samples, var_name, sample_size, reps)
+plot_sampling_hist(samples, var_name, sample_size)
 ```
 **Arguments:**
 
 - `samples` the samples as a tibble
 - `var_name` the name of the column for the variable that is being generated
 - `sample_size` a vector of the sample sizes (each sample size needs to be in the `samples` df input)
-- `reps` the number of replication for each sample size as an integer (should be less than or equal to the number of replications in `samples`)
+
 
 **Example:**
 
@@ -189,7 +189,7 @@ plot_sample_hist(pop, samples, height, c(10, 50, 100))
 ```
 
 ```{r}
-plot_sampling_hist(samples, height, c(10, 50, 100), 100)
+plot_sampling_hist(samples, height, c(10, 50, 100))
 ```
 
 ### Documentation

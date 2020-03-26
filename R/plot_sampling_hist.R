@@ -6,8 +6,7 @@
 #'
 #' @param samples the samples as a tibble
 #' @param var_name the name of the variable/parameter of interest that is being generated
-#' @param n_s a vector of the sample sizes
-#' @param reps the number of replication for each sample size as an integer
+#' @param sample_size a vector of the sample sizes
 #'
 #' @return a grid of the sampling distributions
 #' @export
@@ -15,12 +14,12 @@
 #' @examples
 #' pop <- generate_virtual_pop(100, "Variable", rnorm, 0, 1)
 #' samples <- draw_samples(pop, 3, c(1, 10))
-#' plot_sampling_hist(samples, Variable, c(1, 10), 3)
-plot_sampling_hist <- function(samples, var_name, n_s, reps){
+#' plot_sampling_hist(samples, Variable, c(1, 10))
+plot_sampling_hist <- function(samples, var_name, sample_size){
 
   # Note: inputs have already been checked in `create_sampling_hist`
   # which is not a user facing function
-  sampling_hist <- create_sampling_hist(samples, {{var_name}}, n_s, reps)
+  sampling_hist <- create_sampling_hist(samples, {{var_name}}, sample_size)
   return(gridExtra::grid.arrange(grobs = sampling_hist, ncol = min(4, ceiling(length(sampling_hist) / 2)),
                           top = "Sampling Distribution Histograms"))
 

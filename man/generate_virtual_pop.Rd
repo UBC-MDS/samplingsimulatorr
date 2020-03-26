@@ -11,7 +11,7 @@ generate_virtual_pop(N, var_name, dist, ...)
 
 \item{var_name}{the variable name that we need to create}
 
-\item{dist}{the function that we are using}
+\item{dist}{the distribution function for random variables (starts with 'r') that we are using}
 
 \item{...}{for the dist function}
 }

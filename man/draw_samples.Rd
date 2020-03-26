@@ -4,17 +4,19 @@
 \alias{draw_samples}
 \title{Generates samples of different sizes}
 \usage{
-draw_samples(pop, reps, n_s)
+draw_samples(pop, reps, sample_size)
 }
 \arguments{
 \item{pop}{the virtual population as a tibble}
 
 \item{reps}{the number of replication for each sample size as an integer value}
 
-\item{n_s}{the sample size for each one of the samples as an array}
+\item{sample_size}{the sample size for each one of the samples as an array}
 }
 \value{
 a tibble containing the sample numbers and sample values
+tibble columns are replicate, string from pop, size and rep_size
+rep_size will contain repeated number of reps, used for plotting in other functions
 }
 \description{
 This function draws samples of various sizes from a population.
